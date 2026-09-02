@@ -1,39 +1,19 @@
-﻿using Il2CppScheduleOne.Dialogue;
-using Il2CppScheduleOne.ItemFramework;
-using MelonLoader;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-
-namespace MoreGuns.Guns
+﻿namespace MoreGuns.Guns
 {
     public class AK47 : WeaponBase
     {
-        public GunSettings settings;
-
         private static AK47 instance;
-        public static AK47 Instance
-        {
-            get => instance;
-        }
+        public static AK47 Instance => instance;
 
         public AK47()
         {
-            string name = "AK47";
-            string _ID = "ak47";
+            if (instance != null)
+                return;
 
-            GunSettings settings = new GunSettings();
-            settings.isAutomatic.Value = true;
-            settings.cameraJolt.Value = true;
-            settings.speedMultiplier.Value = 1.0F;
-            settings.requireWindup.Value = false;
-            settings.windupTime.Value = 0.0F;
-            settings.canManualyReload.Value = true;
+            GunSettings gunSettings = new GunSettings();
+            gunSettings.SetValues(true, 1.0F, true, false, 0.0F, true);
 
-            Init(name, _ID, settings);
+            Init("AK47", "ak47", gunSettings);
             instance = this;
         }
     }

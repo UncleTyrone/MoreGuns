@@ -1,15 +1,6 @@
-﻿using Il2CppScheduleOne.Dialogue;
-using Il2CppScheduleOne.Equipping;
-using Il2CppScheduleOne.ItemFramework;
-using Il2CppScheduleOne.Trash;
-using Il2CppScheduleOne.UI.Shop;
-using MelonLoader;
-using System;
+﻿using MelonLoader;
+using MoreGuns.Patches;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace MoreGuns.Guns
@@ -37,8 +28,6 @@ namespace MoreGuns.Guns
 
         public GunConfiguration config;
 
-        public ShopListing gunShop;
-        public ShopListing magShop;
         public GunSettings settings;
 
         public bool IsConfigurationFinished { get; private set; }
@@ -46,134 +35,104 @@ namespace MoreGuns.Guns
         public static List<WeaponBase> allWeapons = new List<WeaponBase>();
         public static Dictionary<string, WeaponBase> weaponsByName = new Dictionary<string, WeaponBase>();
 
+        private static int pendingLoads;
+
+        /// <summary>
+        /// True once every weapon that started loading has either finished or given up. Consumers
+        /// such as the shop injector need this because loading runs on a coroutine.
+        /// </summary>
+        public static bool AllWeaponsLoaded => pendingLoads == 0;
+
         public void Init(string name, string ID, GunSettings settings)
         {
             this.name = name;
             this.ID = ID;
             this.settings = settings;
 
+            pendingLoads++;
             MelonLogger.Msg($"Initializing {ID}");
             MelonCoroutines.Start(LoadGun());
         }
 
+        public void RefreshShopListings()
+        {
+            Patches.ArmsDealerInterfacePatch.RefreshListings();
+        }
+
         private IEnumerator LoadGun()
         {
-            Il2CppAssetBundleRequest Il2CppGunEquippableRq = MoreGunsMod.assetBundle.LoadAssetAsync($"assets/resources/weapons/{ID}/{ID}_equippable.prefab");
-            yield return Il2CppGunEquippableRq;
-            UnityEngine.Object UEOGunEquippable = Il2CppGunEquippableRq.asset;
-            GameObject _GunEquippable = UEOGunEquippable.Cast<GameObject>();
-            if (!CheckAssetLoaded(_GunEquippable, $"assets/resources/weapons/{ID}/{ID}_equippable.prefab", $"{ID}"))
+            string equippablePath = $"assets/resources/weapons/{ID}/{ID}_equippable.prefab";
+            string magDefPath = $"assets/resources/weapons/{ID}/magazine/{ID}_magazine.asset";
+            string gunDefPath = $"assets/resources/weapons/{ID}/{ID}.asset";
+            string magTrashPath = $"assets/resources/weapons/{ID}/magazine/{ID}_magazine_trash.prefab";
+            string handgunPath = $"assets/resources/avatar/equippables/{ID}.prefab";
+            string magAvatarPath = $"assets/resources/weapons/{ID}/magazine/{ID}_magazine_avatarequippable.prefab";
+
+            UnityEngine.Object[] loaded = new UnityEngine.Object[6];
+            string[] paths = { equippablePath, magDefPath, gunDefPath, magTrashPath, handgunPath, magAvatarPath };
+
+            for (int i = 0; i < paths.Length; i++)
             {
-                yield break;
+                var request = MoreGunsMod.assetBundle.LoadAssetAsync(paths[i]);
+                yield return request;
+
+                if (request.asset == null)
+                {
+                    MelonLogger.Error($"Could not load asset '{paths[i]}' for {ID}. {ID} will not be available.");
+                    pendingLoads--;
+                    yield break;
+                }
+
+                loaded[i] = request.asset;
             }
 
-            Il2CppAssetBundleRequest Il2CppGunMagIntItemDef = MoreGunsMod.assetBundle.LoadAssetAsync($"{ID}_Magazine");
-            yield return Il2CppGunMagIntItemDef;
-            UnityEngine.Object UEOGunMagIntItemDef = Il2CppGunMagIntItemDef.asset;
-            IntegerItemDefinition _MagIntItemDef = UEOGunMagIntItemDef.Cast<IntegerItemDefinition>();
-            if (!CheckAssetLoaded(_MagIntItemDef, $"{ID}_Magazine", $"{ID}"))
-            {
-                yield break;
-            }
-
-            Il2CppAssetBundleRequest Il2CppGunIntItemDef = MoreGunsMod.assetBundle.LoadAssetAsync($"assets/resources/weapons/{ID}/{ID}.asset");
-            yield return Il2CppGunIntItemDef;
-            UnityEngine.Object UEOGunIntItemDef = Il2CppGunIntItemDef.asset;
-            IntegerItemDefinition _GunIntItemDef = UEOGunIntItemDef.Cast<IntegerItemDefinition>();
-            if (!CheckAssetLoaded(_GunIntItemDef, $"assets/resources/weapons/{ID}/{ID}.asset", $"{ID}"))
-            {
-                yield break;
-            }
-
-            Il2CppAssetBundleRequest Il2CppGunMagTrash = MoreGunsMod.assetBundle.LoadAssetAsync($"assets/resources/weapons/{ID}/magazine/{ID}_Magazine_Trash.prefab");
-            yield return Il2CppGunMagTrash;
-            UnityEngine.Object UEOGunMagTrash = Il2CppGunMagTrash.asset;
-            GameObject _GunMagTrash = UEOGunMagTrash.Cast<GameObject>();
-            if (!CheckAssetLoaded(_GunMagTrash, $"assets/resources/weapons/{ID}/magazine/{ID}_Magazine_Trash.prefab", $"{ID}"))
-            {
-                yield break;
-            }
-
-            Il2CppAssetBundleRequest Il2CppGunHandGun = MoreGunsMod.assetBundle.LoadAssetAsync($"assets/resources/avatar/equippables/{ID}.prefab");
-            yield return Il2CppGunHandGun;
-            UnityEngine.Object UEOGunHandGun = Il2CppGunHandGun.asset;
-            GameObject _GunHandGun = UEOGunHandGun.Cast<GameObject>();
-            if (!CheckAssetLoaded(_GunHandGun, $"assets/resources/avatar/equippables/{ID}.prefab", $"{ID}"))
-            {
-                yield break;
-            }
-
-            Il2CppAssetBundleRequest Il2CppGunMagAvatarEquippable = MoreGunsMod.assetBundle.LoadAssetAsync($"assets/resources/weapons/{ID}/magazine/{ID}_magazine_avatarequippable.prefab");
-            yield return Il2CppGunMagAvatarEquippable;
-            UnityEngine.Object UEOGunMagAvatarEquippable = Il2CppGunMagAvatarEquippable.asset;
-            GameObject _GunMagAvatarEquippable = UEOGunMagAvatarEquippable.Cast<GameObject>();
-            if (!CheckAssetLoaded(_GunMagAvatarEquippable, $"assets/resources/weapons/{ID}/magazine/{ID}_magazine_avatarequippable.prefab", $"{ID}"))
-            {
-                yield break;
-            }
-
-            GunSettings _settings = _GunEquippable.AddComponent<GunSettings>();
-            ApplyGunSettings(_settings);
-
-            gunEquippable = _GunEquippable;
-            magIntItemDef = _MagIntItemDef;
-            gunIntItemDef = _GunIntItemDef;
-            gunMagTrash = _GunMagTrash;
-            magAvatarEquippable = _GunMagAvatarEquippable;
-            gunHandgun = _GunHandGun;
+            gunEquippable = loaded[0].As<GameObject>();
+            magIntItemDef = loaded[1].As<IntegerItemDefinition>();
+            gunIntItemDef = loaded[2].As<IntegerItemDefinition>();
+            gunMagTrash = loaded[3].As<GameObject>();
+            gunHandgun = loaded[4].As<GameObject>();
+            magAvatarEquippable = loaded[5].As<GameObject>();
 
             gunRangedWeapon = gunEquippable.GetComponent<Equippable_RangedWeapon>();
             gunMagTrashItem = gunMagTrash.GetComponent<TrashItem>();
+
+            if (gunRangedWeapon == null)
+            {
+                MelonLogger.Error($"'{equippablePath}' has no Equippable_RangedWeapon component. {ID} will not be available.");
+                pendingLoads--;
+                yield break;
+            }
+
+            ApplyGunSettings(gunEquippable.AddComponent<GunSettings>());
 
             CreateConfig();
             SetCustomItemUI();
             LoadAnimations();
             ApplySettingsFromConfig();
-            CreatGunShopListing();
 
             MoreGunsMod.RegisterAsset($"Avatar/Equippables/{this.name}", gunHandgun);
+            MoreGunsMod.RegisterAsset($"Avatar/Equippables/{ID}", gunHandgun);
             MoreGunsMod.RegisterAsset($"Weapons/{ID}/Magazine/{this.name}_Magazine_AvatarEquippable", magAvatarEquippable);
 
+            if (!string.IsNullOrEmpty(ID))
+            {
+                gunIntItemDef.ID = ID;
+                if (magIntItemDef != null)
+                    magIntItemDef.ID = ID + "mag";
+            }
+
             allWeapons.Add(this);
-            weaponsByName.Add($"{ID}", this);
+            weaponsByName[ID] = this;
 
-            MelonLogger.Msg($"[MoreGuns] Finished Initializing {ID}");
-        }
-
-        public static bool CheckAssetLoaded(UnityEngine.Object asset, string assetName, string weaponName)
-        {
-            if (asset == null)
-            {
-                MelonLogger.Error($"Could not load asset: {assetName}");
-                MoreGunsMod.StopProcess();
-                return false;
-            }
-            else
-            {
-                MelonLogger.Msg($"Loaded asset for {weaponName} : {assetName}");
-                return true;
-            }
+            pendingLoads--;
+            MelonLogger.Msg($"Finished initializing {ID}.");
+            ItemRegistryPatch.RegisterWeapons();
         }
 
         public void CreateConfig()
         {
             config = new GunConfiguration(this);
             MelonLogger.Msg("Created new config");
-        }
-
-        private void CreatGunShopListing()
-        {
-            gunShop = new ShopListing()
-            {
-                name = $"{gunIntItemDef.Name} (${gunIntItemDef.BasePurchasePrice}) () [Rank {gunIntItemDef.RequiredRank}]",
-                Item = gunIntItemDef,
-            };
-
-            magShop = new ShopListing()
-            {
-                name = $"{magIntItemDef.Name} (${magIntItemDef.BasePurchasePrice}) () [Rank {magIntItemDef.RequiredRank}]",
-                Item = magIntItemDef,
-            };
         }
 
         private void SetCustomItemUI()
@@ -186,7 +145,7 @@ namespace MoreGuns.Guns
                 return;
             }
 
-            var il2cppDefinition = definition.Cast<ItemDefinition>();
+            var il2cppDefinition = definition.As<ItemDefinition>();
 
             if (il2cppDefinition != null)
             {
@@ -204,19 +163,18 @@ namespace MoreGuns.Guns
         {
             gunRangedWeapon.Damage = config.Damage.Value;
             gunRangedWeapon.ImpactForce = config.ImpactForce.Value;
-            gunRangedWeapon.AimFOVReduction = config.AimFOVReduction.Value;
+            gunRangedWeapon.MinAimFOVReduction = config.MinAimFOVReduction.Value;
+            gunRangedWeapon.MaxAimFOVReduction = config.MaxAimFOVReduction.Value;
             gunRangedWeapon.AccuracyChangeDuration = config.AccuracyChangeDuration.Value;
             gunRangedWeapon.MagazineSize = config.MagazineSize.Value;
 
             gunIntItemDef.Name = config.DisplayItemName.Value;
             gunIntItemDef.Description = config.DisplayDescription.Value;
-            gunIntItemDef.LabelDisplayColor = config.LabelDisplayColor.Value;
             gunIntItemDef.legalStatus = config.LegalStatus.Value;
             gunIntItemDef.RequiredRank = config.RequiredRank.Value;
 
             magIntItemDef.Name = config.MagDisplayItemName.Value;
             magIntItemDef.Description = config.MagDisplayDescription.Value;
-            magIntItemDef.LabelDisplayColor = config.MagLabelDisplayColor.Value;
             magIntItemDef.legalStatus = config.MagLegalStatus.Value;
             magIntItemDef.RequiredRank = config.MagRequiredRank.Value;
 
@@ -249,37 +207,33 @@ namespace MoreGuns.Guns
 
         private void LoadAnimations()
         {
-            Equippable_RangedWeapon equipWeapon = (Equippable_RangedWeapon) gunIntItemDef.Equippable;
-            RuntimeAnimatorController animatorController = equipWeapon.AnimatorController;
+            RuntimeAnimatorController animatorController = gunRangedWeapon.AnimatorController;
+            if (animatorController == null)
+            {
+                MelonLogger.Warning($"{ID} has no animator controller; avatar animations will fall back to the default set.");
+                return;
+            }
 
+            // Several clips can match a keyword, so the first match wins rather than throwing on a duplicate key.
             foreach (AnimationClip anim in animatorController.animationClips)
             {
-                if (anim.name.Contains("Idle"))
-                {
-                    animations.Add("BothHands_Grip_Lowered", anim);
-                }
-                if (anim.name.Contains("Aiming"))
-                {
-                    animations.Add("BothHands_Grip_Raised", anim);
-                }
-                if (anim.name.Contains("Fire"))
-                {
-                    if (!animations.ContainsKey("BothHands_Grip_Recoil"))
-                    {
-                        animations.Add("BothHands_Grip_Recoil", anim);
-                    }
-                }
+                if (anim == null)
+                    continue;
+
+                if (anim.name.Contains("Idle") && !animations.ContainsKey("BothHands_Grip_Lowered"))
+                    animations["BothHands_Grip_Lowered"] = anim;
+
+                if (anim.name.Contains("Aiming") && !animations.ContainsKey("BothHands_Grip_Raised"))
+                    animations["BothHands_Grip_Raised"] = anim;
+
+                if (anim.name.Contains("Fire") && !animations.ContainsKey("BothHands_Grip_Recoil"))
+                    animations["BothHands_Grip_Recoil"] = anim;
             }
         }
 
         private void ApplyGunSettings(GunSettings _settings)
         {
-            _settings.isAutomatic.Value = settings.isAutomatic.Value;
-            _settings.speedMultiplier.Value = settings.speedMultiplier.Value;
-            _settings.cameraJolt.Value = settings.cameraJolt.Value;
-            _settings.requireWindup.Value = settings.requireWindup.Value;
-            _settings.windupTime.Value = settings.windupTime.Value;
-            _settings.canManualyReload.Value = settings.canManualyReload.Value;
+            _settings.CopyFrom(settings);
         }
     }
 }

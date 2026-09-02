@@ -3,45 +3,104 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
+    <RootNamespace>MoreGuns</RootNamespace>
+    <Version>1.5.1</Version>
+    <LangVersion>latest</LangVersion>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <Configurations>Debug;Release;Il2Cpp;Mono</Configurations>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Schedule I\MelonLoader\net6\0Harmony.dll</HintPath>
+  <!--
+    Backend selects game assemblies and #if IL2CPP / #if MONO.
+      dotnet build                         -> Il2Cpp (MoreGuns.dll)
+      dotnet build -p:Backend=Mono         -> Mono   (MoreGunsMono.dll)
+      dotnet build -c Mono                 -> Mono
+      dotnet build -t:BuildBoth            -> both
+    Override install locations with -p:GamePath=... and/or -p:MonoGamePath=...
+  -->
+  <PropertyGroup>
+    <Backend Condition="'$(Backend)' == '' And '$(Configuration)' == 'Mono'">Mono</Backend>
+    <Backend Condition="'$(Backend)' == ''">Il2Cpp</Backend>
+    <DefineConstants Condition="'$(Backend)' == 'Mono'">$(DefineConstants);MONO</DefineConstants>
+    <DefineConstants Condition="'$(Backend)' == 'Il2Cpp'">$(DefineConstants);IL2CPP</DefineConstants>
+    <AssemblyName Condition="'$(Backend)' == 'Mono'">MoreGunsMono</AssemblyName>
+    <AssemblyName Condition="'$(Backend)' != 'Mono'">MoreGuns</AssemblyName>
+    <OutputPath>bin\$(Backend)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Backend)\</IntermediateOutputPath>
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Mono' Or '$(Configuration)' == 'Il2Cpp'">
+    <Optimize>false</Optimize>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GamePath)' == ''">
+    <GamePath Condition="Exists('D:\Schedule I\Builds\Public')">D:\Schedule I\Builds\Public</GamePath>
+    <GamePath Condition="'$(GamePath)' == '' And Exists('D:\SteamLibrary\steamapps\common\Schedule I')">D:\SteamLibrary\steamapps\common\Schedule I</GamePath>
+    <GamePath Condition="'$(GamePath)' == '' And Exists('C:\Program Files (x86)\Steam\steamapps\common\Schedule I')">C:\Program Files (x86)\Steam\steamapps\common\Schedule I</GamePath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MonoGamePath)' == ''">
+    <MonoGamePath Condition="Exists('D:\Schedule I\Builds\Alternate')">D:\Schedule I\Builds\Alternate</MonoGamePath>
+    <MonoGamePath Condition="'$(MonoGamePath)' == '' And Exists('$(GamePath)')">$(GamePath)</MonoGamePath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Il2CppAssemblies>$(GamePath)\MelonLoader\Il2CppAssemblies</Il2CppAssemblies>
+    <MelonNet6>$(GamePath)\MelonLoader\net6</MelonNet6>
+    <MonoManaged>$(MonoGamePath)\Schedule I_Data\Managed</MonoManaged>
+  </PropertyGroup>
+
+  <Target Name="ValidateGamePath" BeforeTargets="BeforeBuild">
+    <Error Condition="'$(Backend)' == 'Il2Cpp' And !Exists('$(Il2CppAssemblies)')"
+           Text="Il2Cpp assemblies not found at '$(Il2CppAssemblies)'. Pass -p:GamePath=&quot;&lt;Il2Cpp Schedule I&gt;&quot;." />
+    <Error Condition="'$(Backend)' == 'Mono' And !Exists('$(MonoManaged)')"
+           Text="Mono Managed folder not found at '$(MonoManaged)'. Pass -p:MonoGamePath=&quot;&lt;Alternate / Mono Schedule I&gt;&quot;." />
+    <Error Condition="!Exists('$(MelonNet6)\MelonLoader.dll')"
+           Text="MelonLoader.net6 not found at '$(MelonNet6)'. Pass -p:GamePath=&quot;&lt;install that has MelonLoader 0.7.3&gt;&quot;." />
+  </Target>
+
+  <ItemGroup Condition="'$(Backend)' == 'Il2Cpp'">
+    <Reference Include="$(Il2CppAssemblies)\*.dll">
+      <Private>false</Private>
     </Reference>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Schedule I\MelonLoader\Il2CppAssemblies\Assembly-CSharp.dll</HintPath>
+    <Reference Include="$(MelonNet6)\0Harmony.dll">
+      <Private>false</Private>
     </Reference>
-    <Reference Include="Il2Cppcom.rlabrecque.steamworks.net">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Schedule I\MelonLoader\Il2CppAssemblies\Il2Cppcom.rlabrecque.steamworks.net.dll</HintPath>
+    <Reference Include="$(MelonNet6)\MelonLoader.dll">
+      <Private>false</Private>
     </Reference>
-    <Reference Include="Il2CppFishNet.Runtime">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Schedule I\MelonLoader\Il2CppAssemblies\Il2CppFishNet.Runtime.dll</HintPath>
+    <Reference Include="$(MelonNet6)\Il2CppInterop.Runtime.dll">
+      <Private>false</Private>
     </Reference>
-    <Reference Include="Il2CppInterop.Runtime">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Schedule I\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
+    <Reference Include="$(MelonNet6)\Il2CppInterop.Common.dll">
+      <Private>false</Private>
     </Reference>
-    <Reference Include="Il2Cppmscorlib">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Schedule I\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll</HintPath>
+    <Reference Include="$(MelonNet6)\UnityEngine.Il2CppAssetBundleManager.dll">
+      <Private>false</Private>
     </Reference>
-    <Reference Include="MelonLoader">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Schedule I\MelonLoader\net6\MelonLoader.dll</HintPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Backend)' == 'Mono'">
+    <MonoGameAssembly Include="$(MonoManaged)\*.dll" />
+    <MonoGameAssembly Remove="$(MonoManaged)\mscorlib.dll" />
+    <MonoGameAssembly Remove="$(MonoManaged)\netstandard.dll" />
+    <MonoGameAssembly Remove="$(MonoManaged)\System.dll" />
+    <MonoGameAssembly Remove="$(MonoManaged)\System.*.dll" />
+    <MonoGameAssembly Remove="$(MonoManaged)\Mono.*.dll" />
+    <MonoGameAssembly Remove="$(MonoManaged)\Microsoft.*.dll" />
+    <MonoGameAssembly Remove="$(MonoManaged)\Accessibility.dll" />
+    <Reference Include="@(MonoGameAssembly)">
+      <Private>false</Private>
     </Reference>
-    <Reference Include="ModManager&amp;PhoneApp">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Schedule I\Mods\ModManager&amp;PhoneApp.dll</HintPath>
+    <Reference Include="$(MelonNet6)\0Harmony.dll">
+      <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Schedule I\MelonLoader\Il2CppAssemblies\UnityEngine.AnimationModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Schedule I\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Il2CppAssetBundleManager">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Schedule I\MelonLoader\net6\UnityEngine.Il2CppAssetBundleManager.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Schedule I\MelonLoader\Il2CppAssemblies\UnityEngine.UI.dll</HintPath>
+    <Reference Include="$(MelonNet6)\MelonLoader.dll">
+      <Private>false</Private>
     </Reference>
   </ItemGroup>
 
@@ -51,13 +110,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Assets.resx</DependentUpon>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Assets.resx">
+    <EmbeddedResource Include="Assets.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Assets.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+
+  <Target Name="BuildBoth">
+    <MSBuild Projects="$(MSBuildProjectFullPath)" Properties="Backend=Il2Cpp;Configuration=Debug" Targets="Rebuild" />
+    <MSBuild Projects="$(MSBuildProjectFullPath)" Properties="Backend=Mono;Configuration=Debug" Targets="Rebuild" />
+  </Target>
 
 </Project>

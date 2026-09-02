@@ -1,9 +1,4 @@
-﻿using Il2CppScheduleOne.DevUtilities;
-using Il2CppScheduleOne.Equipping;
-using Il2CppScheduleOne.ItemFramework;
-using Il2CppScheduleOne.PlayerScripts;
-using Il2CppScheduleOne.Trash;
-using MelonLoader;
+﻿using MelonLoader;
 using MoreGuns.Guns;
 using UnityEngine;
 
@@ -44,9 +39,9 @@ namespace MoreGuns.Dialogue
                 {
                     if (allMags.TryGetValue($"{gun.Definition.ID}mag", out ItemInstance mag))
                     {
-                        Equippable_RangedWeapon weapon = gun.Definition.Equippable.Cast<Equippable_RangedWeapon>();
-                        IntegerItemInstance gunInt = gun.Cast<IntegerItemInstance>();
-                        IntegerItemInstance magInt = mag.Cast<IntegerItemInstance>();
+                        Equippable_RangedWeapon weapon = gun.Definition.Equippable.As<Equippable_RangedWeapon>();
+                        IntegerItemInstance gunInt = gun.As<IntegerItemInstance>();
+                        IntegerItemInstance magInt = mag.As<IntegerItemInstance>();
 
                         int capacity = weapon.MagazineSize;
                         int ammoNeeded = capacity - gunInt.Value;

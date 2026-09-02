@@ -1,12 +1,5 @@
 ﻿using HarmonyLib;
-using Il2CppScheduleOne.Equipping;
-using Il2CppScheduleOne.PlayerScripts;
 using MoreGuns.Guns;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MoreGuns.Patches
 {
@@ -21,14 +14,7 @@ namespace MoreGuns.Patches
         {
             if (WeaponBase.weaponsByName.TryGetValue(ID, out var gun))
             {
-                if (!gun.settings.cameraJolt)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+                return gun.settings.cameraJolt;
             }
             return true;
         }

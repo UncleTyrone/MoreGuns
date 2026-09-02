@@ -1,0 +1,18 @@
+# IDE files
+.idea/
+.vscode/
+.vs/
+*.iml
+*.user
+
+# Build files
+/bin/
+/obj/
+*.sln
+
+# Logs
+*.log
+
+# OS specific files
+.DS_Store
+Thumbs.db

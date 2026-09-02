@@ -1,32 +1,27 @@
 ﻿using HarmonyLib;
-using Il2CppScheduleOne.AvatarFramework.Equipping;
-using Il2CppScheduleOne.AvatarFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MelonLoader;
 using UnityEngine;
-using Il2CppScheduleOne.ItemFramework;
+#if IL2CPP
+using GameAvatar = Il2CppScheduleOne.AvatarFramework.Avatar;
+#else
+using GameAvatar = ScheduleOne.AvatarFramework.Avatar;
+#endif
 
 namespace MoreGuns.Patches
 {
     [HarmonyPatch]
     public static class SetEquippablePatch
     {
-        [HarmonyPatch(typeof(Il2CppScheduleOne.AvatarFramework.Avatar), nameof(Il2CppScheduleOne.AvatarFramework.Avatar.SetEquippable))]
+        [HarmonyPatch(typeof(GameAvatar), nameof(GameAvatar.SetEquippable))]
         [HarmonyPrefix]
-        public static bool Prefix(ref AvatarEquippable __result, string assetPath, Il2CppScheduleOne.AvatarFramework.Avatar __instance)
+        public static bool Prefix(ref AvatarEquippable __result, string assetPath, GameAvatar __instance)
         {
-            // Paths may be null or empty, if so return to original method
-            if (string.IsNullOrEmpty(assetPath.Trim()))
+            if (string.IsNullOrWhiteSpace(assetPath))
             {
                 return true;
             }
 
-            UnityEngine.Object il2cppResourceAsset = Resources.Load(assetPath);
-            if (il2cppResourceAsset != null)
+            UnityEngine.Object resourceAsset = Resources.Load(assetPath);
+            if (resourceAsset != null)
             {
                 return true;
             }
@@ -36,31 +31,31 @@ namespace MoreGuns.Patches
                 __instance.CurrentEquippable.Unequip();
             }
 
-            UnityEngine.Object UEObjectAsset = MoreGunsMod.TryGetAsset(assetPath);
-            if (UEObjectAsset == null)
+            UnityEngine.Object customAsset = MoreGunsMod.TryGetAsset(assetPath);
+            if (customAsset == null)
             {
                 return true;
             }
-            
-            GameObject GOAsset = UEObjectAsset.Cast<GameObject>();
-            if (GOAsset == null)
+
+            GameObject prefab = customAsset.As<GameObject>();
+            if (prefab == null)
             {
                 return true;
             }
-            
-            GameObject equippable = UnityEngine.Object.Instantiate(GOAsset);
+
+            GameObject equippable = UnityEngine.Object.Instantiate(prefab);
             if (equippable == null)
             {
                 return true;
             }
 
             AvatarEquippable avatarEquippable = equippable.GetComponent<AvatarEquippable>();
-            if (equippable == null)
+            if (avatarEquippable == null)
             {
                 return true;
             }
 
-            __instance.CurrentEquippable = avatarEquippable;
+            GameAccess.SetCurrentEquippable(__instance, avatarEquippable);
             avatarEquippable.Equip(__instance);
             __result = avatarEquippable;
 

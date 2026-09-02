@@ -1,40 +1,20 @@
-﻿using Il2CppSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MoreGuns.Guns
+﻿namespace MoreGuns.Guns
 {
     public class MiniGun : WeaponBase
     {
-        public GunSettings settings;
-
         private static MiniGun instance;
-        public static MiniGun Instance
-        {
-            get => instance;
-        }
+        public static MiniGun Instance => instance;
 
         public MiniGun()
         {
-            if (instance == null)
-            {
-                string name = "MiniGun";
-                string _ID = "minigun";
+            if (instance != null)
+                return;
 
-                GunSettings settings = new GunSettings();
-                settings.isAutomatic.Value = true;
-                settings.cameraJolt.Value = false;
-                settings.speedMultiplier.Value = 0.75F;
-                settings.requireWindup.Value = true;
-                settings.windupTime.Value = 2.0F;
-                settings.canManualyReload.Value = false;
+            GunSettings gunSettings = new GunSettings();
+            gunSettings.SetValues(true, 0.75F, false, true, 2.0F, Config.AllowMinigunManualReload.Value);
 
-                Init(name, _ID, settings);
-                instance = this;
-            };
+            Init("MiniGun", "minigun", gunSettings);
+            instance = this;
         }
     }
 }

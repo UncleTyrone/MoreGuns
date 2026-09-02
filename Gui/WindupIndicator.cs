@@ -1,10 +1,5 @@
 ﻿using MelonLoader;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,16 +14,24 @@ namespace MoreGuns.Gui
 
         public static void Initialize(Transform parent)
         {
+            windupIndicator = null;
+            windupIndicatorSlider = null;
             MelonCoroutines.Start(LoadAsset(parent));
         }
 
         public static IEnumerator LoadAsset(Transform parent)
         {
-            Il2CppAssetBundleRequest rqWindupIndicator = MoreGunsMod.assetBundle.LoadAssetAsync<GameObject>($"assets/ui/Windup Indicator.prefab");
+            var rqWindupIndicator = MoreGunsMod.assetBundle.LoadAssetAsync<GameObject>("assets/ui/Windup Indicator.prefab");
             yield return rqWindupIndicator;
+
             UnityEngine.Object UEOWindupIndicator = rqWindupIndicator.asset;
-            GameObject _windupIndicator = UEOWindupIndicator.Cast<GameObject>();
-            windupIndicator = UnityEngine.Object.Instantiate(_windupIndicator, parent);
+            if (UEOWindupIndicator == null)
+            {
+                MelonLogger.Error("Could not load the windup indicator prefab from the asset bundle.");
+                yield break;
+            }
+
+            windupIndicator = UnityEngine.Object.Instantiate(UEOWindupIndicator.As<GameObject>(), parent);
             windupIndicator.SetActive(false);
 
             windupIndicatorSlider = windupIndicator.GetComponent<Slider>();
@@ -38,34 +41,29 @@ namespace MoreGuns.Gui
 
         public static void Show(bool shown)
         {
-            windupIndicator.SetActive(shown);
+            if (windupIndicator != null)
+                windupIndicator.SetActive(shown);
         }
 
         public static void SetValueByTime(float from, float to)
         {
-            if (from >= to)
+            if (to <= 0F || from >= to)
             {
                 SetValue(100);
             }
             else
             {
-                int value = (int)((from * 100) / to);
-                SetValue(value);
+                SetValue((int)((from * 100) / to));
             }
         }
 
         public static void SetValue(int value)
         {
-            windupIndicatorSlider.value = value;
+            if (windupIndicatorSlider == null)
+                return;
 
-            if (value == 100)
-            {
-                Show(false);
-            }
-            else
-            {
-                Show(true);
-            }
+            windupIndicatorSlider.value = value;
+            Show(value != 100);
         }
     }
 }

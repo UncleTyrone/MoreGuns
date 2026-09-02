@@ -1,18 +1,6 @@
 ﻿using HarmonyLib;
-using Il2CppScheduleOne;
-using Il2CppScheduleOne.Audio;
-using Il2CppScheduleOne.DevUtilities;
-using Il2CppScheduleOne.Equipping;
-using Il2CppScheduleOne.Tools;
-using Il2CppScheduleOne.UI;
-using MelonLoader;
 using MoreGuns.Gui;
 using MoreGuns.Guns;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace MoreGuns.Patches
@@ -50,7 +38,7 @@ namespace MoreGuns.Patches
                         {
                             anim.Play("MiniGun Windup");
 
-                            if (!windupSound.isPlaying)
+                            if (!windupSound.IsPlaying)
                                 windupSound.Play();
                         }
                     }
@@ -70,7 +58,7 @@ namespace MoreGuns.Patches
                         if (timeSinceLastAutoFire >= __instance.FireCooldown)
                         {
                             timeSinceLastAutoFire = 0F;
-                            if (__instance.CanFire(false))
+                            if (GameAccess.CanFire(__instance, false))
                             {
                                 if (__instance.Ammo > 0)
                                 {
@@ -80,7 +68,7 @@ namespace MoreGuns.Patches
                                     }
                                     else
                                     {
-                                        __instance.Cock();
+                                        GameAccess.Cock(__instance);
                                     }
                                 }
                             }

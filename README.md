@@ -37,29 +37,44 @@ MiniGun Magazine (400 Rounds)
 - Store: All weapons can be bought at stans weapons shop!
 
 ## 📥 Installation
-1. Ensure you have MelonLoader installed
-2. Make sure you are on the Alternate-Branch of the game for Mono
-3. Download the MoreGuns.dll file
-4. Place the DLL in your Schedule 1 Mods folder
-5. Launch the game
+1. Install MelonLoader 0.7.3
+2. Copy the matching DLL into your Schedule I Mods folder:
+   - Il2Cpp (main branch): `MoreGuns.dll`
+   - Mono (alternate branch): `MoreGunsMono.dll`
+3. Launch the game
+
+## 🛠️ Building
+```
+.\build.bat                   # Il2Cpp + Mono
+.\build.bat nopause           # same, no pause (CI / scripts)
+dotnet build                  # Il2Cpp -> bin\Il2Cpp\net6.0\MoreGuns.dll
+dotnet build -c Mono          # Mono   -> bin\Mono\net6.0\MoreGunsMono.dll
+dotnet build -t:BuildBoth     # both
+```
+Override install paths with `-p:GamePath="..."` (Il2Cpp + MelonLoader) and `-p:MonoGamePath="..."` (Alternate/Mono). Defaults look for `D:\Schedule I\Builds\Public` and `D:\Schedule I\Builds\Alternate`.
 
 ## ⚙️ Configuration
+- User settings live in `UserData/MoreGuns.cfg`
+```
+["MoreGuns-! User Settings"]
+"Allow Gun Crosshair" = true
+"Allow Minigun Manual Reload" = true
+```
 - Each gun will have its own configuration like the ak47
 ```
 ["MoreGuns-ak47 Settings"]
 "ak47 Damage" = 70.0
 "ak47 Impact Force" = 200.0
-"ak47 Aim FOV Reduction" = 10.0
+"ak47 Min Aim FOV Reduction" = 10.0
+"ak47 Max Aim FOV Reduction" = 10.0
 "ak47 Accuracy Change Duration" = 0.5
 "ak47 Magazine Size" = 30
 "ak47 Display Name" = "AK47"
 "ak47 Display Description" = "AK47 assault rifle A true American classic."
-"ak47 Label Color" = [ 255.0, 255.0, 255.0, 255.0, ]
 "ak47 Legal Status" = "Legal"
 "ak47 Required Rank" = { Rank = "Underlord", Tier = 3 }
 "ak47 Mag Display Name" = "AK47 Magazine"
 "ak47 Mag Display Description" = "30-round magazine for the ak47 assault rifle."
-"ak47 Mag Label Color" = [ 255.0, 255.0, 255.0, 255.0, ]
 "ak47 Mag Legal Status" = "Legal"
 "ak47 Mag Required Rank" = { Rank = "Underlord", Tier = 3 }
 "ak47 Price" = 15000.0
@@ -73,7 +88,7 @@ MiniGun Magazine (400 Rounds)
 ```
 
 ## 🔄 Compatibility
-- Works with Schedule 1 (current version)
+- Works with Schedule I (Il2Cpp) and MelonLoader 0.7.3
 - Compatible with most other mods
 
 ## 🆘 Support

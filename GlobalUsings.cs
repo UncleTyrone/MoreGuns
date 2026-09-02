@@ -1,0 +1,37 @@
+#if IL2CPP
+global using Il2CppScheduleOne;
+global using Il2CppScheduleOne.Audio;
+global using Il2CppScheduleOne.AvatarFramework;
+global using Il2CppScheduleOne.AvatarFramework.Equipping;
+global using Il2CppScheduleOne.Core.Items.Framework;
+global using Il2CppScheduleOne.DevUtilities;
+global using Il2CppScheduleOne.Dialogue;
+global using Il2CppScheduleOne.Equipping;
+global using Il2CppScheduleOne.ItemFramework;
+global using Il2CppScheduleOne.Levelling;
+global using Il2CppScheduleOne.Networking;
+global using Il2CppScheduleOne.PlayerScripts;
+global using Il2CppScheduleOne.Tools;
+global using Il2CppScheduleOne.Trash;
+global using Il2CppScheduleOne.UI;
+global using Il2CppScheduleOne.UI.Shop;
+global using Il2CppSteamworks;
+#elif MONO
+global using ScheduleOne;
+global using ScheduleOne.Audio;
+global using ScheduleOne.AvatarFramework;
+global using ScheduleOne.AvatarFramework.Equipping;
+global using ScheduleOne.Core.Items.Framework;
+global using ScheduleOne.DevUtilities;
+global using ScheduleOne.Dialogue;
+global using ScheduleOne.Equipping;
+global using ScheduleOne.ItemFramework;
+global using ScheduleOne.Levelling;
+global using ScheduleOne.Networking;
+global using ScheduleOne.PlayerScripts;
+global using ScheduleOne.Tools;
+global using ScheduleOne.Trash;
+global using ScheduleOne.UI;
+global using ScheduleOne.UI.Shop;
+global using Steamworks;
+#endif

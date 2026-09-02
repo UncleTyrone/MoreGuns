@@ -1,11 +1,5 @@
 ﻿using HarmonyLib;
-using Il2CppScheduleOne.Dialogue;
 using MoreGuns.Dialogue;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MoreGuns.Patches
 {

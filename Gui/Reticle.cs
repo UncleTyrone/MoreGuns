@@ -1,40 +1,46 @@
-﻿using Il2CppScheduleOne.UI;
-using MelonLoader;
-using System;
+﻿using MelonLoader;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace MoreGuns.Gui
 {
     public static class Reticle
     {
+        private const float RETRY_INTERVAL = 0.5F;
+        private const float TIMEOUT = 30F;
 
         public static GameObject reticle;
 
         public static void Initialize()
         {
+            reticle = null;
             MelonCoroutines.Start(FindAndInstantiateCrosshair());
         }
 
         public static IEnumerator FindAndInstantiateCrosshair()
         {
-            if (true)
+            float waited = 0F;
+
+            while (HUD.Instance == null || HUD.Instance.crosshair == null)
             {
-                if (HUD.Instance.crosshair == null)
+                if (waited >= TIMEOUT)
                 {
-                    MelonLogger.Msg("Searching for crosshair in scene...");
-                    yield return new WaitForSeconds(0.5F);
+                    MelonLogger.Warning("Gave up waiting for the HUD crosshair; MoreGuns will not show a custom reticle.");
+                    yield break;
                 }
-                else
-                {
-                    reticle = UnityEngine.Object.Instantiate(HUD.Instance.crosshair.gameObject, HUD.Instance.crosshair.transform.parent);
-                    reticle.SetActive(false);
-                }
+
+                waited += RETRY_INTERVAL;
+                yield return new WaitForSeconds(RETRY_INTERVAL);
             }
+
+            reticle = UnityEngine.Object.Instantiate(HUD.Instance.crosshair.gameObject, HUD.Instance.crosshair.transform.parent);
+            reticle.SetActive(false);
+        }
+
+        public static void SetActive(bool active)
+        {
+            if (reticle != null)
+                reticle.SetActive(active);
         }
     }
 }

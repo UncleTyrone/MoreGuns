@@ -41,7 +41,7 @@ namespace MoreGuns.Gui
 
         public static void Show(bool shown)
         {
-            if (windupIndicator != null)
+            if (windupIndicator != null && windupIndicator.activeSelf != shown)
                 windupIndicator.SetActive(shown);
         }
 

@@ -1,58 +1,30 @@
-﻿using MelonLoader;
+﻿using HarmonyLib;
+using MelonLoader;
 using MoreGuns.Guns;
 using System.Collections;
 using UnityEngine;
 
 namespace MoreGuns.Patches
 {
+    [HarmonyPatch]
     public static class ArmsDealerInterfacePatch
     {
         private const string SHOP_OBJECT_NAME = "ArmsDealerInterface";
         private const float READY_POLL_INTERVAL = 0.25F;
         private const float READY_TIMEOUT = 60F;
-        private const float WATCH_INTERVAL = 0.5F;
 
         private static readonly List<ShopInterface> knownShops = new List<ShopInterface>();
 
-        public static IEnumerator Watch()
+        [HarmonyPatch(typeof(ShopInterface), "Awake")]
+        [HarmonyPostfix]
+        public static void PostfixAwake(ShopInterface __instance)
         {
-            while (true)
-            {
-                ShopInterface shop = FindShop();
-                if (shop != null && !knownShops.Contains(shop))
-                    yield return InjectWhenReady(shop);
+            if (__instance.gameObject.name != SHOP_OBJECT_NAME)
+                return;
 
-                yield return new WaitForSeconds(WATCH_INTERVAL);
-            }
+            MelonCoroutines.Start(InjectWhenReady(__instance));
         }
 
-        private static ShopInterface FindShop()
-        {
-            try
-            {
-                ShopInterface[] shops = UnityEngine.Object.FindObjectsOfType<ShopInterface>();
-                if (shops == null)
-                    return null;
-
-                foreach (ShopInterface shop in shops)
-                {
-                    if (shop != null && shop.gameObject.name == SHOP_OBJECT_NAME)
-                        return shop;
-                }
-            }
-            catch
-            {
-                // shop type not ready this frame
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Weapons are loaded from the asset bundle asynchronously, so the shop usually wakes up
-        /// before they exist. Waiting here (instead of latching a one-shot flag) is what keeps the
-        /// listings from being silently skipped.
-        /// </summary>
         private static IEnumerator InjectWhenReady(ShopInterface shop)
         {
             float waited = 0F;
@@ -107,10 +79,6 @@ namespace MoreGuns.Patches
             }
         }
 
-        /// <summary>
-        /// Copies stock/visibility behaviour off an existing vanilla listing so new shop fields
-        /// stay correct across game updates instead of defaulting to zero stock.
-        /// </summary>
         private static ShopListing FindTemplate(ShopInterface shop)
         {
             if (shop.Listings == null)

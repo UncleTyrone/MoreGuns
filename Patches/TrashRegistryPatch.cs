@@ -1,46 +1,22 @@
-﻿using MelonLoader;
+﻿using HarmonyLib;
+using MelonLoader;
 using MoreGuns.Guns;
 using System.Collections;
 using UnityEngine;
 
 namespace MoreGuns.Patches
 {
+    [HarmonyPatch]
     public static class TrashRegistryPatch
     {
         private const float READY_POLL_INTERVAL = 0.25F;
         private const float READY_TIMEOUT = 60F;
-        private const float WATCH_INTERVAL = 0.5F;
 
-        private static bool registered;
-
-        public static IEnumerator Watch()
+        [HarmonyPatch(typeof(TrashManager), "Start")]
+        [HarmonyPostfix]
+        public static void Postfix(TrashManager __instance)
         {
-            registered = false;
-            float waited = 0F;
-            while (!registered && waited < READY_TIMEOUT)
-            {
-                TrashManager manager = FindManager();
-                if (manager != null)
-                {
-                    yield return RegisterWhenReady(manager);
-                    yield break;
-                }
-
-                waited += WATCH_INTERVAL;
-                yield return new WaitForSeconds(WATCH_INTERVAL);
-            }
-        }
-
-        private static TrashManager FindManager()
-        {
-            try
-            {
-                return UnityEngine.Object.FindObjectOfType<TrashManager>();
-            }
-            catch
-            {
-                return null;
-            }
+            MelonCoroutines.Start(RegisterWhenReady(__instance));
         }
 
         private static IEnumerator RegisterWhenReady(TrashManager manager)
@@ -75,8 +51,6 @@ namespace MoreGuns.Patches
                 manager.TrashPrefabs = allTrashItems.ToArray();
                 MelonLogger.Msg($"Added {added} magazine trash prefab(s) to the TrashManager.");
             }
-
-            registered = true;
         }
     }
 }

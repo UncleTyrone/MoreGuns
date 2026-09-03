@@ -1,13 +1,30 @@
-﻿using MelonLoader;
+﻿using HarmonyLib;
+using MelonLoader;
 using MoreGuns.Guns;
 using System.Collections;
+using System.Reflection;
 using UnityEngine;
 
 namespace MoreGuns.Patches
 {
+    [HarmonyPatch]
     public static class ItemRegistryPatch
     {
         private static bool isRegistering;
+
+        private static bool Prepare() => TargetMethod() != null;
+
+        private static MethodBase TargetMethod()
+        {
+            return AccessTools.Method(typeof(Registry), "_GetItem", new[] { typeof(string), typeof(bool) });
+        }
+
+        public static void Prefix(Registry __instance, string ID)
+        {
+            if (isRegistering || __instance == null || !IsOurId(ID))
+                return;
+            RegisterInto(__instance);
+        }
 
         public static void Reset()
         {
@@ -25,19 +42,37 @@ namespace MoreGuns.Patches
                 yield return new WaitForSeconds(0.25F);
             }
 
-            for (int i = 0; i < 30; i++)
-            {
-                RegisterWeapons();
-                yield return new WaitForSeconds(2F);
-            }
+            RegisterWeapons();
         }
 
         public static void RegisterWeapons()
         {
             Registry registry = null;
             try { registry = Registry.Instance; }
-            catch { /* singleton name varies */ }
+            catch { }
             RegisterInto(registry);
+        }
+
+        private static bool IsOurId(string id)
+        {
+            if (string.IsNullOrEmpty(id) || WeaponBase.weaponsByName.Count == 0)
+                return false;
+            if (WeaponBase.weaponsByName.ContainsKey(id))
+                return true;
+            if (id.Length > 3 && id.EndsWith("mag", StringComparison.OrdinalIgnoreCase))
+            {
+                string gunId = id.Substring(0, id.Length - 3);
+                if (WeaponBase.weaponsByName.ContainsKey(gunId))
+                    return true;
+            }
+            foreach (string key in WeaponBase.weaponsByName.Keys)
+            {
+                if (string.Equals(key, id, StringComparison.OrdinalIgnoreCase))
+                    return true;
+                if (string.Equals(key + "mag", id, StringComparison.OrdinalIgnoreCase))
+                    return true;
+            }
+            return false;
         }
 
         private static void RegisterInto(Registry registry)
@@ -82,10 +117,7 @@ namespace MoreGuns.Patches
                 if (Registry.ItemExists(definition.ID))
                     return false;
             }
-            catch
-            {
-                // ItemExists failed; try adding anyway.
-            }
+            catch { }
 
             try { registry.AddToRegistry(definition); }
             catch { GameAccess.Call(registry, "AddToRegistry", definition); }

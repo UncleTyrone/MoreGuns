@@ -35,10 +35,7 @@ namespace MoreGuns.Patches
                 if (__instance.CurrentEquippable != null)
                     __instance.CurrentEquippable.Unequip();
             }
-            catch
-            {
-                // current equippable already torn down
-            }
+            catch { }
 
             UnityEngine.Object customAsset = MoreGunsMod.TryGetAsset(assetPath);
             if (customAsset == null)

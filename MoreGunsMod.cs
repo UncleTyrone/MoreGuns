@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(MoreGunsMod), "MoreGuns", "1.5.3", "Voidane")]
+[assembly: MelonInfo(typeof(MoreGunsMod), "MoreGuns", "1.5.5", "Voidane")]
 [assembly: MelonGame("TVGS", "Schedule I")]
 [assembly: HarmonyDontPatchAll]
 
@@ -73,6 +73,27 @@ namespace MoreGuns
                 return;
             }
 
+            // Apply Harmony after scene load to avoid the CLR 0x80131306 crash.
+            // PatchAll during OnInitializeMelon triggers MonoMod's JIT hook too early.
+            if (!harmonyApplied)
+            {
+#if IL2CPP
+                harmony = new HarmonyLib.Harmony("com.voidane.moregunsil2cpp");
+#else
+                harmony = new HarmonyLib.Harmony("com.voidane.moregunsmono");
+#endif
+                try
+                {
+                    harmony.PatchAll(typeof(MoreGunsMod).Assembly);
+                    harmonyApplied = true;
+                    MelonLogger.Msg("All Harmony patches applied.");
+                }
+                catch (Exception ex)
+                {
+                    MelonLogger.Error($"Harmony PatchAll failed: {ex}");
+                }
+            }
+
             try
             {
                 NetworkController.SyncConfiguration();
@@ -83,9 +104,6 @@ namespace MoreGuns
             }
 
             MelonCoroutines.Start(ItemRegistryPatch.RegisterWhenReady());
-            MelonCoroutines.Start(ArmsDealerInterfacePatch.Watch());
-            MelonCoroutines.Start(TrashRegistryPatch.Watch());
-            MelonCoroutines.Start(ApplyEssentialPatchesWhenReady());
 
             Reticle.Initialize();
 
@@ -98,32 +116,6 @@ namespace MoreGuns
 
             ReloadMessage.Initialize(hud.transform);
             WindupIndicator.Initialize(hud.transform);
-        }
-
-        /// <summary>
-        /// Harmony is installed only after Main is up. Creating a Harmony instance (and PatchAll)
-        /// during OnInitializeMelon installs MonoMod's JIT hook, which fatals the CLR
-        /// (0x80131306 / CORPROF_E_FUNCTION_NOT_IL) when it later sees a Polyfill shim.
-        /// </summary>
-        private static IEnumerator ApplyEssentialPatchesWhenReady()
-        {
-            yield return null;
-            yield return null;
-
-            if (harmonyApplied)
-                yield break;
-
-#if IL2CPP
-            harmony = new HarmonyLib.Harmony("com.voidane.moregunsil2cpp");
-#else
-            harmony = new HarmonyLib.Harmony("com.voidane.moregunsmono");
-#endif
-            SafeHarmony.Apply(
-                harmony,
-                typeof(SetEquippablePatch),
-                typeof(DialoguePatch),
-                typeof(Equippalbe_RangedWeaponPatch));
-            harmonyApplied = true;
         }
 
         public static void RegisterAsset(string path, UnityEngine.Object asset)

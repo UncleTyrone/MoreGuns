@@ -1,5 +1,4 @@
 ﻿using System;
-using MoreGuns.Guns;
 using UnityEngine;
 
 namespace MoreGuns
@@ -28,20 +27,6 @@ namespace MoreGuns
             catch
             {
                 return false;
-            }
-        }
-
-        public static GunSettings SettingsOf(Equippable_RangedWeapon weapon)
-        {
-            if (!Alive(weapon))
-                return null;
-            try
-            {
-                return weapon.GetComponent<GunSettings>();
-            }
-            catch
-            {
-                return null;
             }
         }
 

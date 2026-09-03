@@ -62,7 +62,6 @@ namespace MoreGuns.Sync
                     HostToClientConfigurationSync(data);
                     yield break;
                 }
-                MelonLogger.Msg("Waiting for payload.");
                 yield return new WaitForSeconds(1F);
             }
         }

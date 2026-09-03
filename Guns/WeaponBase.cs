@@ -161,6 +161,8 @@ namespace MoreGuns.Guns
 
         public void ApplySettingsFromConfig()
         {
+            if (gunRangedWeapon == null || config == null)
+                return;
             gunRangedWeapon.Damage = config.Damage.Value;
             gunRangedWeapon.ImpactForce = config.ImpactForce.Value;
             gunRangedWeapon.MinAimFOVReduction = config.MinAimFOVReduction.Value;

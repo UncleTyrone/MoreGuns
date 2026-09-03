@@ -71,6 +71,8 @@ namespace MoreGuns.Sync
         {
             foreach (WeaponBase weapon in WeaponBase.allWeapons)
             {
+                if (weapon == null || weapon.gunRangedWeapon == null || weapon.config == null)
+                    continue;
 
                 weapon.ApplySettingsFromConfig();
                 while (!weapon.IsConfigurationFinished)

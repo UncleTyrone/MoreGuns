@@ -19,6 +19,10 @@ namespace MoreGuns.Patches
             {
                 return true;
             }
+            if (!Tools.Alive(__instance))
+            {
+                return false;
+            }
 
             UnityEngine.Object resourceAsset = Resources.Load(assetPath);
             if (resourceAsset != null)
@@ -26,9 +30,14 @@ namespace MoreGuns.Patches
                 return true;
             }
 
-            if (__instance.CurrentEquippable != null)
+            try
             {
-                __instance.CurrentEquippable.Unequip();
+                if (__instance.CurrentEquippable != null)
+                    __instance.CurrentEquippable.Unequip();
+            }
+            catch
+            {
+                // current equippable already torn down
             }
 
             UnityEngine.Object customAsset = MoreGunsMod.TryGetAsset(assetPath);
@@ -55,9 +64,16 @@ namespace MoreGuns.Patches
                 return true;
             }
 
-            GameAccess.SetCurrentEquippable(__instance, avatarEquippable);
-            avatarEquippable.Equip(__instance);
-            __result = avatarEquippable;
+            try
+            {
+                GameAccess.SetCurrentEquippable(__instance, avatarEquippable);
+                avatarEquippable.Equip(__instance);
+                __result = avatarEquippable;
+            }
+            catch
+            {
+                return true;
+            }
 
             return false;
         }

@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(MoreGunsMod), "MoreGuns", "1.5.1", "Voidane")]
+[assembly: MelonInfo(typeof(MoreGunsMod), "MoreGuns", "1.5.3", "Voidane")]
 [assembly: MelonGame("TVGS", "Schedule I")]
 [assembly: HarmonyDontPatchAll]
 
@@ -32,6 +32,7 @@ namespace MoreGuns
 
         public static bool isInitialized;
         public static HarmonyLib.Harmony harmony;
+        private static bool harmonyApplied;
 
         public override void OnInitializeMelon()
         {
@@ -48,13 +49,6 @@ namespace MoreGuns
                 isInitialized = false;
                 return;
             }
-
-#if IL2CPP
-            harmony = new HarmonyLib.Harmony("com.voidane.moregunsil2cpp");
-#else
-            harmony = new HarmonyLib.Harmony("com.voidane.moregunsmono");
-#endif
-            harmony.PatchAll(typeof(MoreGunsMod).Assembly);
 
             isInitialized = true;
             Config.Initialize();
@@ -89,6 +83,9 @@ namespace MoreGuns
             }
 
             MelonCoroutines.Start(ItemRegistryPatch.RegisterWhenReady());
+            MelonCoroutines.Start(ArmsDealerInterfacePatch.Watch());
+            MelonCoroutines.Start(TrashRegistryPatch.Watch());
+            MelonCoroutines.Start(ApplyEssentialPatchesWhenReady());
 
             Reticle.Initialize();
 
@@ -101,6 +98,32 @@ namespace MoreGuns
 
             ReloadMessage.Initialize(hud.transform);
             WindupIndicator.Initialize(hud.transform);
+        }
+
+        /// <summary>
+        /// Harmony is installed only after Main is up. Creating a Harmony instance (and PatchAll)
+        /// during OnInitializeMelon installs MonoMod's JIT hook, which fatals the CLR
+        /// (0x80131306 / CORPROF_E_FUNCTION_NOT_IL) when it later sees a Polyfill shim.
+        /// </summary>
+        private static IEnumerator ApplyEssentialPatchesWhenReady()
+        {
+            yield return null;
+            yield return null;
+
+            if (harmonyApplied)
+                yield break;
+
+#if IL2CPP
+            harmony = new HarmonyLib.Harmony("com.voidane.moregunsil2cpp");
+#else
+            harmony = new HarmonyLib.Harmony("com.voidane.moregunsmono");
+#endif
+            SafeHarmony.Apply(
+                harmony,
+                typeof(SetEquippablePatch),
+                typeof(DialoguePatch),
+                typeof(Equippalbe_RangedWeaponPatch));
+            harmonyApplied = true;
         }
 
         public static void RegisterAsset(string path, UnityEngine.Object asset)

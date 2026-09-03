@@ -1,28 +1,51 @@
-﻿using HarmonyLib;
-using MelonLoader;
+﻿using MelonLoader;
 using MoreGuns.Guns;
 using System.Collections;
 using UnityEngine;
 
 namespace MoreGuns.Patches
 {
-    [HarmonyPatch]
     public static class ArmsDealerInterfacePatch
     {
         private const string SHOP_OBJECT_NAME = "ArmsDealerInterface";
         private const float READY_POLL_INTERVAL = 0.25F;
         private const float READY_TIMEOUT = 60F;
+        private const float WATCH_INTERVAL = 0.5F;
 
         private static readonly List<ShopInterface> knownShops = new List<ShopInterface>();
 
-        [HarmonyPatch(typeof(ShopInterface), "Awake")]
-        [HarmonyPostfix]
-        public static void PostfixAwake(ShopInterface __instance)
+        public static IEnumerator Watch()
         {
-            if (__instance.gameObject.name != SHOP_OBJECT_NAME)
-                return;
+            while (true)
+            {
+                ShopInterface shop = FindShop();
+                if (shop != null && !knownShops.Contains(shop))
+                    yield return InjectWhenReady(shop);
 
-            MelonCoroutines.Start(InjectWhenReady(__instance));
+                yield return new WaitForSeconds(WATCH_INTERVAL);
+            }
+        }
+
+        private static ShopInterface FindShop()
+        {
+            try
+            {
+                ShopInterface[] shops = UnityEngine.Object.FindObjectsOfType<ShopInterface>();
+                if (shops == null)
+                    return null;
+
+                foreach (ShopInterface shop in shops)
+                {
+                    if (shop != null && shop.gameObject.name == SHOP_OBJECT_NAME)
+                        return shop;
+                }
+            }
+            catch
+            {
+                // shop type not ready this frame
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -48,7 +71,6 @@ namespace MoreGuns.Patches
                 yield return new WaitForSeconds(READY_POLL_INTERVAL);
             }
 
-            // Let the shop finish its own Start()/UI construction before adding to it.
             yield return null;
             yield return null;
 

@@ -14,7 +14,7 @@ namespace MoreGuns.Patches
         {
             if (WeaponBase.weaponsByName.TryGetValue(ID, out var gun))
             {
-                return gun.settings.cameraJolt;
+                return gun.settings == null || gun.settings.cameraJolt;
             }
             return true;
         }

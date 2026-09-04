@@ -1,0 +1,1325 @@
+{
+  "AK47": {
+    "name": "AK47",
+    "components": [
+      {
+        "type": "Transform"
+      },
+      {
+        "type": "Animation"
+      },
+      {
+        "type": "MonoBehaviour",
+        "script": "PlayAnimation"
+      },
+      {
+        "type": "MonoBehaviour",
+        "script": "EditionConditionalObject"
+      }
+    ],
+    "children": [
+      {
+        "name": "K47",
+        "components": [
+          {
+            "type": "Transform"
+          }
+        ],
+        "children": [
+          {
+            "name": "Frame",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "MeshFilter",
+                "mesh": "default"
+              },
+              {
+                "type": "MeshRenderer"
+              }
+            ],
+            "children": [
+              {
+                "name": "Barrel",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "default"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": []
+              },
+              {
+                "name": "Grip",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "default"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": []
+              },
+              {
+                "name": "Trigger",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "default"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Magazine",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "MeshFilter",
+                "mesh": "default"
+              },
+              {
+                "type": "MeshRenderer"
+              }
+            ],
+            "children": [
+              {
+                "name": "Magazine LOD1",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "default"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Slide",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "MeshFilter",
+                "mesh": "default"
+              },
+              {
+                "type": "MeshRenderer"
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Magazine",
+        "components": [
+          {
+            "type": "Transform"
+          },
+          {
+            "type": "MeshFilter",
+            "mesh": "default"
+          },
+          {
+            "type": "MeshRenderer"
+          },
+          {
+            "type": "LODGroup"
+          }
+        ],
+        "children": [
+          {
+            "name": "Magazine LOD1",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "MeshFilter",
+                "mesh": "default"
+              },
+              {
+                "type": "MeshRenderer"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "7.62x39mm Bullet",
+            "components": [
+              {
+                "type": "Transform"
+              }
+            ],
+            "children": [
+              {
+                "name": "7.62x39mm Bullet",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "default"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "MuzzlePoint",
+        "components": [
+          {
+            "type": "Transform"
+          }
+        ],
+        "children": []
+      },
+      {
+        "name": "Shell Ejjection Particles",
+        "components": [
+          {
+            "type": "Transform"
+          },
+          {
+            "type": "ParticleSystem"
+          },
+          {
+            "type": "ParticleSystemRenderer"
+          }
+        ],
+        "children": []
+      },
+      {
+        "name": "Smoke Particles",
+        "components": [
+          {
+            "type": "Transform"
+          },
+          {
+            "type": "ParticleSystem"
+          },
+          {
+            "type": "ParticleSystemRenderer"
+          }
+        ],
+        "children": []
+      },
+      {
+        "name": "Muzzle Flash",
+        "components": [
+          {
+            "type": "Transform"
+          }
+        ],
+        "children": [
+          {
+            "name": "Flash Red",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "MeshFilter",
+                "mesh": "Cylinder"
+              },
+              {
+                "type": "MeshRenderer"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Flash Orange",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "MeshFilter",
+                "mesh": "Cylinder.001"
+              },
+              {
+                "type": "MeshRenderer"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Point Light",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "Light"
+              },
+              {
+                "type": "MonoBehaviour",
+                "script": "UniversalAdditionalLightData"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Point Light (1)",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "Light"
+              },
+              {
+                "type": "MonoBehaviour",
+                "script": "UniversalAdditionalLightData"
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Fire Sound",
+        "components": [
+          {
+            "type": "Transform"
+          },
+          {
+            "type": "AudioSource"
+          },
+          {
+            "type": "MonoBehaviour",
+            "script": "RandomizedAudioSourceController"
+          }
+        ],
+        "children": []
+      },
+      {
+        "name": "Empty Sound",
+        "components": [
+          {
+            "type": "Transform"
+          },
+          {
+            "type": "AudioSource"
+          },
+          {
+            "type": "MonoBehaviour",
+            "script": "RandomizedAudioSourceController"
+          }
+        ],
+        "children": []
+      },
+      {
+        "name": "Reload Sound",
+        "components": [
+          {
+            "type": "Transform"
+          },
+          {
+            "type": "AudioSource"
+          },
+          {
+            "type": "MonoBehaviour",
+            "script": "RandomizedAudioSourceController"
+          }
+        ],
+        "children": []
+      }
+    ]
+  },
+  "MiniGun_Equippable": {
+    "name": "MiniGun_Equippable",
+    "components": [
+      {
+        "type": "Transform"
+      },
+      {
+        "type": "MonoBehaviour",
+        "script": "Equippable_RangedWeapon"
+      }
+    ],
+    "children": [
+      {
+        "name": "MiniGun",
+        "components": [
+          {
+            "type": "Transform"
+          },
+          {
+            "type": "Animation"
+          },
+          {
+            "type": "MonoBehaviour",
+            "script": "PlayAnimation"
+          },
+          {
+            "type": "MonoBehaviour",
+            "script": "EditionConditionalObject"
+          }
+        ],
+        "children": [
+          {
+            "name": "Gun",
+            "components": [
+              {
+                "type": "Transform"
+              }
+            ],
+            "children": [
+              {
+                "name": "Frame",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "default"
+                  }
+                ],
+                "children": [
+                  {
+                    "name": "Frame LOD1",
+                    "components": [
+                      {
+                        "type": "Transform"
+                      },
+                      {
+                        "type": "MeshFilter",
+                        "mesh": "default"
+                      },
+                      {
+                        "type": "MeshRenderer"
+                      }
+                    ],
+                    "children": []
+                  },
+                  {
+                    "name": "Barrel",
+                    "components": [
+                      {
+                        "type": "Transform"
+                      },
+                      {
+                        "type": "MeshRenderer"
+                      },
+                      {
+                        "type": "MeshFilter",
+                        "mesh": "default"
+                      }
+                    ],
+                    "children": []
+                  },
+                  {
+                    "name": "Grip",
+                    "components": [
+                      {
+                        "type": "Transform"
+                      },
+                      {
+                        "type": "MeshFilter",
+                        "mesh": "default"
+                      },
+                      {
+                        "type": "MeshRenderer"
+                      }
+                    ],
+                    "children": []
+                  },
+                  {
+                    "name": "Trigger",
+                    "components": [
+                      {
+                        "type": "Transform"
+                      },
+                      {
+                        "type": "MeshRenderer"
+                      },
+                      {
+                        "type": "MeshFilter",
+                        "mesh": "default"
+                      }
+                    ],
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Magazine",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "default"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Magazine",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "MeshRenderer"
+              },
+              {
+                "type": "MeshFilter",
+                "mesh": "default"
+              },
+              {
+                "type": "LODGroup"
+              }
+            ],
+            "children": [
+              {
+                "name": "7.62x51mm Bullet",
+                "components": [
+                  {
+                    "type": "Transform"
+                  }
+                ],
+                "children": [
+                  {
+                    "name": "7.62x51mm Bullet",
+                    "components": [
+                      {
+                        "type": "Transform"
+                      },
+                      {
+                        "type": "MeshFilter",
+                        "mesh": "default"
+                      },
+                      {
+                        "type": "MeshRenderer"
+                      }
+                    ],
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "MuzzlePoint",
+            "components": [
+              {
+                "type": "Transform"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Shell Ejjection Particles",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "ParticleSystem"
+              },
+              {
+                "type": "ParticleSystemRenderer"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Smoke Particles",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "ParticleSystem"
+              },
+              {
+                "type": "ParticleSystemRenderer"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Muzzle Flash",
+            "components": [
+              {
+                "type": "Transform"
+              }
+            ],
+            "children": [
+              {
+                "name": "Flash Red",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "Cylinder"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": []
+              },
+              {
+                "name": "Flash Orange",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "Cylinder.001"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": []
+              },
+              {
+                "name": "Point Light",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "Light"
+                  },
+                  {
+                    "type": "MonoBehaviour",
+                    "script": "UniversalAdditionalLightData"
+                  }
+                ],
+                "children": []
+              },
+              {
+                "name": "Point Light (1)",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "Light"
+                  },
+                  {
+                    "type": "MonoBehaviour",
+                    "script": "UniversalAdditionalLightData"
+                  }
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Fire Sound",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "AudioSource"
+              },
+              {
+                "type": "MonoBehaviour",
+                "script": "RandomizedAudioSourceController"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Empty Sound",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "AudioSource"
+              },
+              {
+                "type": "MonoBehaviour",
+                "script": "RandomizedAudioSourceController"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Reload Sound",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "AudioSource"
+              },
+              {
+                "type": "MonoBehaviour",
+                "script": "RandomizedAudioSourceController"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Windup Sound",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "AudioSource"
+              },
+              {
+                "type": "MonoBehaviour",
+                "script": "RandomizedAudioSourceController"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Shutdown Sound",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "AudioSource"
+              },
+              {
+                "type": "MonoBehaviour",
+                "script": "RandomizedAudioSourceController"
+              }
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "AK47_Magazine_AvatarEquippable": {
+    "name": "AK47_Magazine_AvatarEquippable",
+    "components": [
+      {
+        "type": "Transform"
+      },
+      {
+        "type": "MonoBehaviour",
+        "script": "AvatarEquippable"
+      }
+    ],
+    "children": [
+      {
+        "name": "Magazine",
+        "components": [
+          {
+            "type": "Transform"
+          },
+          {
+            "type": "MeshFilter",
+            "mesh": "default"
+          },
+          {
+            "type": "MeshRenderer"
+          },
+          {
+            "type": "LODGroup"
+          }
+        ],
+        "children": [
+          {
+            "name": "Magazine LOD1",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "MeshFilter",
+                "mesh": "default"
+              },
+              {
+                "type": "MeshRenderer"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "7.62x39mm Bullet",
+            "components": [
+              {
+                "type": "Transform"
+              }
+            ],
+            "children": [
+              {
+                "name": "7.62x39mm Bullet",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "default"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Alignment",
+        "components": [
+          {
+            "type": "Transform"
+          }
+        ],
+        "children": []
+      }
+    ]
+  },
+  "AK47_Equippable": {
+    "name": "AK47_Equippable",
+    "components": [
+      {
+        "type": "Transform"
+      },
+      {
+        "type": "MonoBehaviour",
+        "script": "Equippable_RangedWeapon"
+      }
+    ],
+    "children": [
+      {
+        "name": "AK47",
+        "components": [
+          {
+            "type": "Transform"
+          },
+          {
+            "type": "Animation"
+          },
+          {
+            "type": "MonoBehaviour",
+            "script": "PlayAnimation"
+          },
+          {
+            "type": "MonoBehaviour",
+            "script": "EditionConditionalObject"
+          }
+        ],
+        "children": [
+          {
+            "name": "K47",
+            "components": [
+              {
+                "type": "Transform"
+              }
+            ],
+            "children": [
+              {
+                "name": "Frame",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "default"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": [
+                  {
+                    "name": "Barrel",
+                    "components": [
+                      {
+                        "type": "Transform"
+                      },
+                      {
+                        "type": "MeshFilter",
+                        "mesh": "default"
+                      },
+                      {
+                        "type": "MeshRenderer"
+                      }
+                    ],
+                    "children": []
+                  },
+                  {
+                    "name": "Grip",
+                    "components": [
+                      {
+                        "type": "Transform"
+                      },
+                      {
+                        "type": "MeshFilter",
+                        "mesh": "default"
+                      },
+                      {
+                        "type": "MeshRenderer"
+                      }
+                    ],
+                    "children": []
+                  },
+                  {
+                    "name": "Trigger",
+                    "components": [
+                      {
+                        "type": "Transform"
+                      },
+                      {
+                        "type": "MeshFilter",
+                        "mesh": "default"
+                      },
+                      {
+                        "type": "MeshRenderer"
+                      }
+                    ],
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Magazine",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "default"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": [
+                  {
+                    "name": "Magazine LOD1",
+                    "components": [
+                      {
+                        "type": "Transform"
+                      },
+                      {
+                        "type": "MeshFilter",
+                        "mesh": "default"
+                      },
+                      {
+                        "type": "MeshRenderer"
+                      }
+                    ],
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Slide",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "default"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Magazine",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "MeshFilter",
+                "mesh": "default"
+              },
+              {
+                "type": "MeshRenderer"
+              },
+              {
+                "type": "LODGroup"
+              }
+            ],
+            "children": [
+              {
+                "name": "Magazine LOD1",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "default"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": []
+              },
+              {
+                "name": "7.62x39mm Bullet",
+                "components": [
+                  {
+                    "type": "Transform"
+                  }
+                ],
+                "children": [
+                  {
+                    "name": "7.62x39mm Bullet",
+                    "components": [
+                      {
+                        "type": "Transform"
+                      },
+                      {
+                        "type": "MeshFilter",
+                        "mesh": "default"
+                      },
+                      {
+                        "type": "MeshRenderer"
+                      }
+                    ],
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "MuzzlePoint",
+            "components": [
+              {
+                "type": "Transform"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Shell Ejjection Particles",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "ParticleSystem"
+              },
+              {
+                "type": "ParticleSystemRenderer"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Smoke Particles",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "ParticleSystem"
+              },
+              {
+                "type": "ParticleSystemRenderer"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Muzzle Flash",
+            "components": [
+              {
+                "type": "Transform"
+              }
+            ],
+            "children": [
+              {
+                "name": "Flash Red",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "Cylinder"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": []
+              },
+              {
+                "name": "Flash Orange",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "MeshFilter",
+                    "mesh": "Cylinder.001"
+                  },
+                  {
+                    "type": "MeshRenderer"
+                  }
+                ],
+                "children": []
+              },
+              {
+                "name": "Point Light",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "Light"
+                  },
+                  {
+                    "type": "MonoBehaviour",
+                    "script": "UniversalAdditionalLightData"
+                  }
+                ],
+                "children": []
+              },
+              {
+                "name": "Point Light (1)",
+                "components": [
+                  {
+                    "type": "Transform"
+                  },
+                  {
+                    "type": "Light"
+                  },
+                  {
+                    "type": "MonoBehaviour",
+                    "script": "UniversalAdditionalLightData"
+                  }
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Fire Sound",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "AudioSource"
+              },
+              {
+                "type": "MonoBehaviour",
+                "script": "RandomizedAudioSourceController"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Empty Sound",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "AudioSource"
+              },
+              {
+                "type": "MonoBehaviour",
+                "script": "RandomizedAudioSourceController"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Reload Sound",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "AudioSource"
+              },
+              {
+                "type": "MonoBehaviour",
+                "script": "RandomizedAudioSourceController"
+              }
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "AK47_Magazine_Trash": {
+    "name": "AK47_Magazine_Trash",
+    "components": [
+      {
+        "type": "Transform"
+      },
+      {
+        "type": "Rigidbody"
+      },
+      {
+        "type": "MonoBehaviour",
+        "script": "InteractableObject"
+      },
+      {
+        "type": "MonoBehaviour",
+        "script": "Draggable"
+      },
+      {
+        "type": "MonoBehaviour",
+        "script": "PhysicsDamageable"
+      },
+      {
+        "type": "MonoBehaviour",
+        "script": "TrashItem"
+      },
+      {
+        "type": "MonoBehaviour",
+        "script": "ImpactSoundEntity"
+      }
+    ],
+    "children": [
+      {
+        "name": "Magazine",
+        "components": [
+          {
+            "type": "Transform"
+          },
+          {
+            "type": "MeshFilter",
+            "mesh": "default"
+          },
+          {
+            "type": "MeshRenderer"
+          },
+          {
+            "type": "LODGroup"
+          }
+        ],
+        "children": [
+          {
+            "name": "Magazine LOD1",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "MeshFilter",
+                "mesh": "default"
+              },
+              {
+                "type": "MeshRenderer"
+              }
+            ],
+            "children": []
+          },
+          {
+            "name": "Magazine_COLL",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "BoxCollider"
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "7.62x39mm Bullet",
+        "components": [
+          {
+            "type": "Transform"
+          }
+        ],
+        "children": [
+          {
+            "name": "7.62x39mm Bullet",
+            "components": [
+              {
+                "type": "Transform"
+              },
+              {
+                "type": "MeshFilter",
+                "mesh": "default"
+              },
+              {
+                "type": "MeshRenderer"
+              }
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -55,6 +55,14 @@ namespace MoreGuns.Patches
                 return true;
             }
 
+            // Never scrub AK avatar clones — leftover cleanup would delete the real mag mesh.
+            string pathLower = assetPath.ToLowerInvariant();
+            if (pathLower.IndexOf("ak47", System.StringComparison.Ordinal) < 0)
+            {
+                try { MagazineSocketFix.FixGunHierarchy(equippable); }
+                catch { }
+            }
+
             AvatarEquippable avatarEquippable = equippable.GetComponent<AvatarEquippable>();
             if (avatarEquippable == null)
             {

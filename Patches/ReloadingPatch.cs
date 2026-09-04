@@ -11,32 +11,37 @@ namespace MoreGuns.Patches
         [HarmonyPrefix]
         public static bool Prefix(Equippable_RangedWeapon __instance)
         {
-            if (IsMinigun(__instance))
+            WeaponBase source = GunSettings.ResolveWeaponBase(__instance);
+            if (source == null)
+                return true;
+
+            string id = source.ID ?? "";
+
+            if (string.Equals(id, "minigun", System.StringComparison.OrdinalIgnoreCase))
             {
                 if (Config.AllowMinigunManualReload != null && Config.AllowMinigunManualReload.Value)
-                    return true;
+                {
+                    ManualReload.TryReload(__instance, source, useGunReloadAnim: false);
+                    return false;
+                }
 
                 ReloadMessage.Show("Take the MiniGun to Stan to reload.");
                 return false;
             }
 
-            GunSettings settings = __instance.gameObject.GetComponent<GunSettings>();
-            if (settings != null && !settings.canManualyReload)
+            GunTuning tuning = source.settings;
+            if (tuning != null && !tuning.canManualyReload)
             {
                 ReloadMessage.Show(true);
                 return false;
             }
 
-            return true;
-        }
+            GunSettings.EnsureOn(__instance);
 
-        private static bool IsMinigun(Equippable_RangedWeapon weapon)
-        {
-            if (weapon == null || weapon.gameObject == null)
-                return false;
-
-            string name = weapon.gameObject.name.ToLowerInvariant();
-            return name.Contains("minigun");
+            // RPG: ammo transfer only (no mag-out anim). AK/SMG/sniper: full gun reload clip.
+            bool gunAnim = !string.Equals(id, "rpg", System.StringComparison.OrdinalIgnoreCase);
+            ManualReload.TryReload(__instance, source, useGunReloadAnim: gunAnim);
+            return false;
         }
     }
 }

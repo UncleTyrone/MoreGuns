@@ -45,6 +45,21 @@ namespace MoreGuns
             }
         }
 
+        public static T Get<T>(object instance, string member)
+        {
+            if (instance == null)
+                return default;
+            switch (ResolveMember(instance.GetType(), member))
+            {
+                case FieldInfo field:
+                    return field.GetValue(instance) is T ft ? ft : default;
+                case PropertyInfo property when property.CanRead:
+                    return property.GetValue(instance) is T pt ? pt : default;
+                default:
+                    return default;
+            }
+        }
+
         public static bool CanFire(Equippable_RangedWeapon weapon, bool checkAmmo)
         {
             return Call<bool>(weapon, "CanFire", checkAmmo);

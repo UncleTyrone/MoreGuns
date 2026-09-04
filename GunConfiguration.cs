@@ -74,7 +74,7 @@ namespace MoreGuns
             MagDisplayItemName = Category.CreateEntry($"{ID} Mag Display Name", magIntItemDef.Name);
             MagDisplayDescription = Category.CreateEntry($"{ID} Mag Display Description", magIntItemDef.Description);
             MagLegalStatus = Category.CreateEntry($"{ID} Mag Legal Status", ELegalStatus.Legal);
-            MagRequiredRank = Category.CreateEntry($"{ID} Mag Required Rank", new FullRank(ERank.Underlord, 3));
+            MagRequiredRank = Category.CreateEntry($"{ID} Mag Required Rank", magIntItemDef.RequiredRank);
 
             PurchasePrice = Category.CreateEntry($"{ID} Price", gunIntItemDef.BasePurchasePrice);
             ItemName = Category.CreateEntry($"{ID} Name", gunIntItemDef.Name);

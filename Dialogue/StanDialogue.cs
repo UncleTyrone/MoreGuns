@@ -1,5 +1,6 @@
 ﻿using MelonLoader;
 using MoreGuns.Guns;
+using MoreGuns.Patches;
 using UnityEngine;
 
 namespace MoreGuns.Dialogue
@@ -7,60 +8,78 @@ namespace MoreGuns.Dialogue
     public static class StanDialogue
     {
         public const string stanDialogueMainOptions = "72f05df5-cfd4-4be3-9239-fc31bb44f49b";
-        public static List<ItemInstance> allGuns = new List<ItemInstance>();
-        public static Dictionary<string, ItemInstance> allMags = new Dictionary<string, ItemInstance>();
 
+        /// <summary>
+        /// Stan "Reload Guns" — fills MoreGuns weapons in the hotbar from matching magazine
+        /// stacks (hotbar + inventory). Supports multiple guns and multiple mag stacks.
+        /// </summary>
         public static void StartSpecialGunReloads()
         {
             try
             {
-                allGuns.Clear();
-                allMags.Clear();
+                PlayerInventory inv = PlayerSingleton<PlayerInventory>.Instance;
+                if (inv?.hotbarSlots == null)
+                    return;
 
-                foreach (ItemSlot item in PlayerSingleton<PlayerInventory>.Instance.hotbarSlots)
+                PlayerCamera cam = PlayerSingleton<PlayerCamera>.Instance;
+
+                for (int i = 0; i < inv.hotbarSlots.Count; i++)
                 {
-                    if (item?.ItemInstance?.Definition == null)
-                    {
+                    ItemSlot gunSlot = inv.hotbarSlots[i];
+                    ItemInstance gunInst = gunSlot?.ItemInstance;
+                    if (gunInst?.Definition == null)
                         continue;
-                    }
 
-                    string ID = item.ItemInstance.Definition.ID;
-                    if (WeaponBase.weaponsByName.ContainsKey(ID))
+                    string gunId = gunInst.Definition.ID;
+                    if (string.IsNullOrEmpty(gunId)
+                        || !WeaponBase.weaponsByName.TryGetValue(gunId, out WeaponBase source)
+                        || source == null)
+                        continue;
+
+                    IntegerItemInstance gunAmmo = gunInst.As<IntegerItemInstance>();
+                    if (gunAmmo == null)
+                        continue;
+
+                    int capacity = ResolveCapacity(source);
+                    if (gunAmmo.Value >= capacity)
+                        continue;
+
+                    string magId = ResolveMagId(source);
+                    if (string.IsNullOrEmpty(magId))
+                        continue;
+
+                    // Pull from any matching mag stacks until this gun is full.
+                    int guard = 64;
+                    while (gunAmmo.Value < capacity && guard-- > 0)
                     {
-                        allGuns.Add(item.ItemInstance);
-                    }
-                    if (ID.EndsWith("mag"))
-                    {
-                        allMags.Add(ID, item.ItemInstance);
-                    }
-                }
+                        if (!TryFindMagazine(inv, magId, out ItemSlot magSlot, out IntegerItemInstance magAmmo))
+                            break;
 
-                foreach (ItemInstance gun in allGuns)
-                {
-                    if (allMags.TryGetValue($"{gun.Definition.ID}mag", out ItemInstance mag))
-                    {
-                        Equippable_RangedWeapon weapon = gun.Definition.Equippable.As<Equippable_RangedWeapon>();
-                        IntegerItemInstance gunInt = gun.As<IntegerItemInstance>();
-                        IntegerItemInstance magInt = mag.As<IntegerItemInstance>();
-
-                        int capacity = weapon.MagazineSize;
-                        int ammoNeeded = capacity - gunInt.Value;
-                        int remainder = magInt.Value - ammoNeeded;
-
-                        if (remainder <= 0)
+                        int available = magAmmo.Value;
+                        if (available <= 0)
                         {
-                            int newGunAmmo = gunInt.Value + magInt.Value;
-                            gunInt.SetValue(newGunAmmo);
-                            magInt.SetValue(0);
-                            mag.ChangeQuantity(-1);
+                            RemoveEmptyMag(magSlot);
+                            SpawnMagTrash(source, cam);
+                            continue;
+                        }
 
-                            Vector3 position = PlayerSingleton<PlayerCamera>.Instance.transform.position - PlayerSingleton<PlayerCamera>.Instance.transform.up * 0.4f;
-                            NetworkSingleton<TrashManager>.Instance.CreateTrashItem(weapon.ReloadTrash.ID, position, UnityEngine.Random.rotation, default(Vector3), "", false);
+                        int take = Mathf.Min(capacity - gunAmmo.Value, available);
+                        int newAmmo = gunAmmo.Value + take;
+                        gunAmmo.SetValue(newAmmo);
+                        try { gunAmmo.Value = newAmmo; } catch { }
+
+                        int left = available - take;
+                        if (left <= 0)
+                        {
+                            magAmmo.SetValue(0);
+                            try { magAmmo.Value = 0; } catch { }
+                            RemoveEmptyMag(magSlot);
+                            SpawnMagTrash(source, cam);
                         }
                         else
                         {
-                            gunInt.SetValue(capacity);
-                            magInt.SetValue(remainder);
+                            magAmmo.SetValue(left);
+                            try { magAmmo.Value = left; } catch { }
                         }
                     }
                 }
@@ -70,6 +89,127 @@ namespace MoreGuns.Dialogue
                 MelonLogger.Error($"Exception in StartSpecialGunReloads: {ex.Message}");
                 MelonLogger.Error($"Stack trace: {ex.StackTrace}");
             }
+        }
+
+        private static int ResolveCapacity(WeaponBase source)
+        {
+            try
+            {
+                if (source.config?.MagazineSize != null)
+                    return Mathf.Max(1, source.config.MagazineSize.Value);
+            }
+            catch { }
+
+            try
+            {
+                if (source.gunRangedWeapon != null)
+                    return Mathf.Max(1, source.gunRangedWeapon.MagazineSize);
+            }
+            catch { }
+
+            return 30;
+        }
+
+        private static string ResolveMagId(WeaponBase source)
+        {
+            if (source.magIntItemDef != null && !string.IsNullOrEmpty(source.magIntItemDef.ID))
+                return source.magIntItemDef.ID;
+            if (!string.IsNullOrEmpty(source.ID))
+                return source.ID + "mag";
+            return null;
+        }
+
+        private static bool TryFindMagazine(
+            PlayerInventory inv,
+            string magId,
+            out ItemSlot slot,
+            out IntegerItemInstance magAmmo)
+        {
+            slot = null;
+            magAmmo = null;
+
+            if (inv.hotbarSlots != null)
+            {
+                for (int i = 0; i < inv.hotbarSlots.Count; i++)
+                {
+                    if (MatchMagSlot(inv.hotbarSlots[i], magId, out slot, out magAmmo))
+                        return true;
+                }
+            }
+
+            try
+            {
+                var all = inv.GetAllInventorySlots();
+                if (all != null)
+                {
+                    for (int i = 0; i < all.Count; i++)
+                    {
+                        if (MatchMagSlot(all[i], magId, out slot, out magAmmo))
+                            return true;
+                    }
+                }
+            }
+            catch { }
+
+            return false;
+        }
+
+        private static bool MatchMagSlot(
+            ItemSlot s,
+            string magId,
+            out ItemSlot slot,
+            out IntegerItemInstance magAmmo)
+        {
+            slot = null;
+            magAmmo = null;
+            ItemInstance inst = s?.ItemInstance;
+            if (inst?.Definition == null)
+                return false;
+            if (!string.Equals(inst.Definition.ID, magId, StringComparison.OrdinalIgnoreCase))
+                return false;
+
+            IntegerItemInstance integer = inst.As<IntegerItemInstance>();
+            if (integer == null)
+                return false;
+
+            slot = s;
+            magAmmo = integer;
+            return true;
+        }
+
+        private static void RemoveEmptyMag(ItemSlot magSlot)
+        {
+            if (magSlot?.ItemInstance == null)
+                return;
+            try { magSlot.ItemInstance.ChangeQuantity(-1); }
+            catch
+            {
+                try { magSlot.ChangeQuantity(-1); }
+                catch { }
+            }
+        }
+
+        private static void SpawnMagTrash(WeaponBase source, PlayerCamera cam)
+        {
+            try
+            {
+                if (source == null || cam == null)
+                    return;
+
+                TrashRegistryPatch.EnsureTrashId(source);
+                TrashItem prefab = source.gunMagTrashItem;
+                if (prefab == null)
+                    return;
+
+                if (string.IsNullOrEmpty(prefab.ID)
+                    || string.Equals(prefab.ID, "trashid", StringComparison.OrdinalIgnoreCase))
+                    prefab.ID = source.ID + "mag";
+
+                Vector3 position = cam.transform.position - cam.transform.up * 0.4f;
+                // CreateTrashItem NREs when the trash ID was never registered under a real key.
+                UnityEngine.Object.Instantiate(prefab.gameObject, position, UnityEngine.Random.rotation);
+            }
+            catch { }
         }
     }
 }

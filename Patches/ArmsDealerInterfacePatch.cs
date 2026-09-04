@@ -19,10 +19,50 @@ namespace MoreGuns.Patches
         [HarmonyPostfix]
         public static void PostfixAwake(ShopInterface __instance)
         {
-            if (__instance.gameObject.name != SHOP_OBJECT_NAME)
+            if (__instance == null || __instance.gameObject.name != SHOP_OBJECT_NAME)
                 return;
 
+            if (!knownShops.Contains(__instance))
+                knownShops.Add(__instance);
+
             MelonCoroutines.Start(InjectWhenReady(__instance));
+        }
+
+        /// <summary>
+        /// Harmony is applied after Main loads, so ShopInterface.Awake may already have run.
+        /// Call this after PatchAll to catch the shop without relying on Awake.
+        /// </summary>
+        public static IEnumerator FindAndInjectAfterHarmony()
+        {
+            float waited = 0F;
+            while (waited < READY_TIMEOUT)
+            {
+                GameObject go = GameObject.Find(SHOP_OBJECT_NAME);
+                if (go != null)
+                {
+                    ShopInterface shop = go.GetComponent<ShopInterface>();
+                    if (shop != null)
+                    {
+                        if (!knownShops.Contains(shop))
+                            knownShops.Add(shop);
+
+                        while (!WeaponBase.AllWeaponsLoaded && waited < READY_TIMEOUT)
+                        {
+                            waited += READY_POLL_INTERVAL;
+                            yield return new WaitForSeconds(READY_POLL_INTERVAL);
+                        }
+
+                        yield return null;
+                        Inject(shop);
+                        yield break;
+                    }
+                }
+
+                waited += READY_POLL_INTERVAL;
+                yield return new WaitForSeconds(READY_POLL_INTERVAL);
+            }
+
+            MelonLogger.Warning($"Could not find {SHOP_OBJECT_NAME} after {READY_TIMEOUT}s.");
         }
 
         private static IEnumerator InjectWhenReady(ShopInterface shop)
@@ -52,8 +92,21 @@ namespace MoreGuns.Patches
             Inject(shop);
         }
 
+        public static void InjectAllKnownShops()
+        {
+            knownShops.RemoveAll(shop => shop == null);
+            foreach (ShopInterface shop in knownShops)
+            {
+                try { Inject(shop); }
+                catch (Exception ex) { MelonLogger.Warning($"Shop inject failed: {ex.Message}"); }
+            }
+        }
+
         private static void Inject(ShopInterface shop)
         {
+            if (shop == null)
+                return;
+
             if (shop.Listings == null)
             {
                 MelonLogger.Warning($"{SHOP_OBJECT_NAME} has no listing collection; skipping MoreGuns listings.");
@@ -68,15 +121,19 @@ namespace MoreGuns.Patches
 
             foreach (WeaponBase weapon in WeaponBase.allWeapons)
             {
-                if (AddListing(shop, weapon.gunIntItemDef, template)) added++;
-                if (AddListing(shop, weapon.magIntItemDef, template)) added++;
+                try
+                {
+                    if (AddListing(shop, weapon.gunIntItemDef, template)) added++;
+                    if (AddListing(shop, weapon.magIntItemDef, template)) added++;
+                }
+                catch (Exception ex)
+                {
+                    MelonLogger.Warning($"Failed to add shop listing for {weapon?.ID}: {ex.Message}");
+                }
             }
 
             if (added > 0)
-            {
                 GameAccess.RefreshShownItems(shop);
-                MelonLogger.Msg($"Added {added} MoreGuns listing(s) to {SHOP_OBJECT_NAME}.");
-            }
         }
 
         private static ShopListing FindTemplate(ShopInterface shop)
@@ -95,7 +152,7 @@ namespace MoreGuns.Patches
 
         private static bool AddListing(ShopInterface shop, StorableItemDefinition item, ShopListing template)
         {
-            if (item == null)
+            if (item == null || string.IsNullOrEmpty(item.ID))
                 return false;
 
             if (shop.GetListing(item.ID) != null)

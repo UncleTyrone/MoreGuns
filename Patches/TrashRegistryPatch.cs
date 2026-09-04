@@ -2,6 +2,7 @@
 using MelonLoader;
 using MoreGuns.Guns;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MoreGuns.Patches
@@ -19,6 +20,21 @@ namespace MoreGuns.Patches
             MelonCoroutines.Start(RegisterWhenReady(__instance));
         }
 
+        public static void EnsureTrashId(WeaponBase weapon)
+        {
+            if (weapon?.gunMagTrashItem == null || string.IsNullOrEmpty(weapon.ID))
+                return;
+
+            string want = weapon.ID + "mag";
+            string current = weapon.gunMagTrashItem.ID;
+            // Duplicates ship as empty or the placeholder "trashid".
+            if (string.IsNullOrEmpty(current)
+                || string.Equals(current, "trashid", System.StringComparison.OrdinalIgnoreCase))
+            {
+                weapon.gunMagTrashItem.ID = want;
+            }
+        }
+
         private static IEnumerator RegisterWhenReady(TrashManager manager)
         {
             float waited = 0F;
@@ -34,23 +50,28 @@ namespace MoreGuns.Patches
             if (manager == null)
                 yield break;
 
-            List<TrashItem> allTrashItems = manager.TrashPrefabs.ToList();
+            List<TrashItem> allTrashItems = manager.TrashPrefabs != null
+                ? manager.TrashPrefabs.ToList()
+                : new List<TrashItem>();
             int added = 0;
 
             foreach (WeaponBase weapon in WeaponBase.allWeapons)
             {
-                if (weapon.gunMagTrashItem == null || allTrashItems.Contains(weapon.gunMagTrashItem))
+                TrashItem trash = weapon.gunMagTrashItem;
+                if (trash == null)
                     continue;
 
-                allTrashItems.Add(weapon.gunMagTrashItem);
+                EnsureTrashId(weapon);
+
+                if (allTrashItems.Contains(trash))
+                    continue;
+
+                allTrashItems.Add(trash);
                 added++;
             }
 
-            if (added > 0)
-            {
+            if (added > 0 || allTrashItems.Count > 0)
                 manager.TrashPrefabs = allTrashItems.ToArray();
-                MelonLogger.Msg($"Added {added} magazine trash prefab(s) to the TrashManager.");
-            }
         }
     }
 }

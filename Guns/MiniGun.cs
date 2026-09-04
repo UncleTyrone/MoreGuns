@@ -10,10 +10,10 @@
             if (instance != null)
                 return;
 
-            GunSettings gunSettings = new GunSettings();
-            gunSettings.SetValues(true, 0.75F, false, true, 2.0F, Config.AllowMinigunManualReload.Value);
+            var tuning = new GunTuning();
+            tuning.SetValues(true, 0.75F, false, true, 2.0F, Config.AllowMinigunManualReload.Value);
 
-            Init("MiniGun", "minigun", gunSettings);
+            Init("MiniGun", "minigun", tuning);
             instance = this;
         }
     }

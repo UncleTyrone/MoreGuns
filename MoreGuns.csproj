@@ -105,6 +105,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="UnityAuthoring/**" />
+    <Compile Remove="tools/**" />
+    <EmbeddedResource Remove="UnityAuthoring/**" />
+    <None Remove="UnityAuthoring/**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="UnityAuthoring/**" />
+    <Compile Remove="tools/**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Assets.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

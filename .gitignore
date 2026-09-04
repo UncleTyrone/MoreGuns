@@ -16,3 +16,21 @@
 # OS specific files
 .DS_Store
 Thumbs.db
+
+# Local extract / ripper binaries
+/tools/AssetRipper/
+/tools/*.zip
+/UnityAuthoring/Assets/Ripped/
+/UnityAuthoring/Assets/Bundles/
+/UnityAuthoring/Library/
+/UnityAuthoring/Temp/
+/UnityAuthoring/Logs/
+/UnityAuthoring/unity_batch*.log
+/UnityAuthoring/Assets/Ripped/ExportedProject/Library/
+/UnityAuthoring/Assets/Ripped/ExportedProject/Logs/
+/UnityAuthoring/Assets/Ripped/ExportedProject/Temp/
+/UnityAuthoring/Extracted/textures/
+/UnityAuthoring/Extracted/meshes/
+/UnityAuthoring/Extracted/audio/
+/UnityAuthoring/Assets/Models/_downloads/
+/UnityAuthoring/Assets/Audio/_downloads/

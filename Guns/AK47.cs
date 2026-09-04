@@ -10,10 +10,10 @@
             if (instance != null)
                 return;
 
-            GunSettings gunSettings = new GunSettings();
-            gunSettings.SetValues(true, 1.0F, true, false, 0.0F, true);
+            var tuning = new GunTuning();
+            tuning.SetValues(true, 1.0F, true, false, 0.0F, true);
 
-            Init("AK47", "ak47", gunSettings);
+            Init("AK47", "ak47", tuning);
             instance = this;
         }
     }

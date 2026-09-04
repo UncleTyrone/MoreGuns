@@ -17,7 +17,6 @@ namespace MoreGuns
                 try
                 {
                     new PatchClassProcessor(harmony, patchClass).Patch();
-                    MelonLogger.Msg($"Bound Harmony class {patchClass.Name}.");
                 }
                 catch (Exception ex)
                 {

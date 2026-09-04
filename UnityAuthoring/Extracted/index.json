@@ -1,0 +1,4710 @@
+[
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": -9199566790050853393,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Material",
+    "name": "grid_material_blue",
+    "path_id": -9128949780092343208
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -9074404141598405425
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "TileAppearance",
+    "path_id": -9072595029629816333
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "BuildPoint",
+    "path_id": -9070933991180768436,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -9056742722203675055
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8971606708581786281
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8963742990984460890
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine LOD1",
+    "path_id": -8955889814001349187,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Barrel",
+    "path_id": -8931193367177634549,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -8922999537889654813
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Gun",
+    "path_id": -8909894441281009440,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -8890382237879842573
+  },
+  {
+    "type": "ClassIDType.Rigidbody",
+    "name": "",
+    "path_id": -8887381614944355779
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -8875492638458430704
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -8836111270685854447
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -8815526670125431987
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -8811861065573282266
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8805613984383822425
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -8802748198603187543
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "AK47_Magazine_Equippable",
+    "path_id": -8802666334150220455,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8792699722892967291
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8778242418434428506
+  },
+  {
+    "type": "ClassIDType.ParticleSystem",
+    "name": "",
+    "path_id": -8776478106160943722
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "RandomizedAudioSourceController",
+    "path_id": -8727893062137636627
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -8710177121343639691
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8696243807656505844
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8694002275572803053
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": -8645672043752068004,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": -8597870172412766926
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Model",
+    "path_id": -8495209941263318234,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Point Light (1)",
+    "path_id": -8480899173040421975,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.Light",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -8468119474137905575
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8441431215144890020
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Trigger",
+    "path_id": -8437052283073112981,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MuzzlePoint",
+    "path_id": -8426358934723322417,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": -8414160395830958166,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Point Light",
+    "path_id": -8403252858874342534,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.Light",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.ParticleSystemRenderer",
+    "name": "",
+    "path_id": -8383440427628790486
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8355301307408955141
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Reload Message",
+    "path_id": -8351051061187453750,
+    "components": [
+      "ClassIDType.RectTransform",
+      "ClassIDType.CanvasRenderer",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8317622411997343048
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -8243966317720409672
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -8240876423252924000
+  },
+  {
+    "type": "ClassIDType.Material",
+    "name": "grid_material_white",
+    "path_id": -8221636396431186248
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -8195600506500167606
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8175500197497417610
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8120978654207538857
+  },
+  {
+    "type": "ClassIDType.Material",
+    "name": "7.62x39mm Bullet",
+    "path_id": -8105998995616948435
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -8089365931431842425
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8018055460840516093
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -8016520735203809249
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8010004058399939853
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -8001195326266009758
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "Text",
+    "path_id": -7978266203517415465
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -7927443459587928241
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7926580417270863548
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -7915826176216033396
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -7911688247909324432
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7888934703080716242
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -7869276434534980256
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -7864479745492520660
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -7859369655183340887
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -7847945167557910961
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7818218050393077948
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Smoke Particles",
+    "path_id": -7815963955805223037,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.ParticleSystem",
+      "ClassIDType.ParticleSystemRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -7809505302899649608
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -7762895179395898595
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -7750625794360288867
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -7731552661373206457
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -7729339154596743649
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -7702209741082311567
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7694251572096571206
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -7642267869223263707
+  },
+  {
+    "type": "ClassIDType.Texture2D",
+    "name": "AK47_Roughness",
+    "path_id": -7634453815642641612
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -7626277805478239976
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7580251467414508902
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7577541045197791171
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -7569296286741623521
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7565155238190041423
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": -7521956344743288913
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "StorageFoorprintTiles",
+    "path_id": -7511325805258077871,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": -7492385091426102466,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.AudioClip",
+    "name": "ak47_shot_fire1",
+    "path_id": -7489715047346507720
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7455389791888159283
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -7435198140770635800
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7411553731365862201
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -7408138000792700922
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7386672421907995212
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Reload Sound",
+    "path_id": -7385210877243356412,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.AudioSource",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.AudioSource",
+    "name": "",
+    "path_id": -7363626443009689486
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7352931592187852960
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MiniGun",
+    "path_id": -7345600391679435188,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.Animation"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MiniGun",
+    "path_id": -7295918941837576638,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -7294649407992341990
+  },
+  {
+    "type": "ClassIDType.Material",
+    "name": "grid_material_red",
+    "path_id": -7256728792479226605
+  },
+  {
+    "type": "ClassIDType.AnimationClip",
+    "name": "AK47 Fire",
+    "path_id": -7216442820988736130
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7182939056307501244
+  },
+  {
+    "type": "ClassIDType.Texture2D",
+    "name": "MiniGun__Magazine_Icon",
+    "path_id": -7174677595812377650
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7128502066382684898
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -7109634043066431344
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7101098529482685727
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -7099734744285458727
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -7099675312714369748
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7068518153703383706
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -7058930048979762320
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -7030684636412390741
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "Image",
+    "path_id": -7030229213176759517
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -7013606389897709478
+  },
+  {
+    "type": "ClassIDType.ParticleSystem",
+    "name": "",
+    "path_id": -7003879982673712781
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -6981167245424695182
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -6977757621086286117
+  },
+  {
+    "type": "ClassIDType.AnimationClip",
+    "name": "AK47 Reload",
+    "path_id": -6924567833022904239
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -6922966544192488547
+  },
+  {
+    "type": "ClassIDType.CanvasRenderer",
+    "name": "",
+    "path_id": -6901501690466758881
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine LOD1",
+    "path_id": -6809317372813904611,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -6763030357607561583
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MuzzlePoint",
+    "path_id": -6758185917059875637,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -6732500539330131387
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -6675670340637346949
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "FootprintTile",
+    "path_id": -6664178643131846501
+  },
+  {
+    "type": "ClassIDType.ParticleSystem",
+    "name": "",
+    "path_id": -6619562127410105041
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Point Light",
+    "path_id": -6589609560451072956,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.Light",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Muzzle Flash",
+    "path_id": -6588279485793458010,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -6587558742147029162
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -6579964167146625098
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -6506771604494030367
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -6434715699118462611
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -6345835933935384106
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -6312166595034808884
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MiniGun_Magazine_Trash",
+    "path_id": -6298342941293786660,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.Rigidbody",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -6278553727189895371
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -6246833496353490903
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Shutdown Sound",
+    "path_id": -6214051481380724197,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.AudioSource",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Smoke Particles",
+    "path_id": -6117627652619005559,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.ParticleSystem",
+      "ClassIDType.ParticleSystemRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -6061617246809944244
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -6047622750726313536
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -6036172013114095788
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -5991163027002820230
+  },
+  {
+    "type": "ClassIDType.Texture2D",
+    "name": "AK47_Texture",
+    "path_id": -5945729665104088730
+  },
+  {
+    "type": "ClassIDType.RectTransform",
+    "name": "",
+    "path_id": -5945527604708918100
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": -5880880725122839064,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -5820465036510428474
+  },
+  {
+    "type": "ClassIDType.AnimationClip",
+    "name": "MiniGun Fire",
+    "path_id": -5755941846240362479
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": -5679793101278807932,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "OverrideGhostMaterial",
+    "path_id": -5614691481923775118
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -5604016102001737645
+  },
+  {
+    "type": "ClassIDType.AudioClip",
+    "name": "ak47_empty",
+    "path_id": -5487587873843628984
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine LOD1",
+    "path_id": -5477839514373715002,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": -5441914489446426811,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -5402959014109839703
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -5398120140733296415
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Flash Red",
+    "path_id": -5363893237616554288,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": -5337494278341597269,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": -5314393220585752250
+  },
+  {
+    "type": "ClassIDType.AnimationClip",
+    "name": "Armature_AK47 Fire",
+    "path_id": -5314101935824899967
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "AlignmentPoint",
+    "path_id": -5308486185145038076,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -5305252934312886710
+  },
+  {
+    "type": "ClassIDType.Texture2D",
+    "name": "MachineGun_Diffuse",
+    "path_id": -5297171776044821100
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -5214846771110365640
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -5178475148801519893
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -5161122223266786958
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine LOD1",
+    "path_id": -5110109675996777514,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "Cylinder",
+    "path_id": -5102191715229131500
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": -5093547697827535069,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -5092239257343099088
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -5085160979289474733
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -5079025115544532136
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": -5047079946249543114,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -5045974494852827371
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -5010683094592173149
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": -5000263308012698611,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -4996802521545772237
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -4989187498839978408
+  },
+  {
+    "type": "ClassIDType.ParticleSystem",
+    "name": "",
+    "path_id": -4956234164856160048
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -4953426270886981435
+  },
+  {
+    "type": "ClassIDType.Animation",
+    "name": "",
+    "path_id": -4943664588218411566
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -4940111755902308208
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Trigger",
+    "path_id": -4930205703655371518,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -4924095505498171289
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -4912039247795973138
+  },
+  {
+    "type": "ClassIDType.AnimatorController",
+    "name": "MiniGunAnimator",
+    "path_id": -4907783779658246830
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -4880310122902062173
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -4848379524698010405
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine_COLL",
+    "path_id": -4832862723549770056,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.BoxCollider"
+    ]
+  },
+  {
+    "type": "ClassIDType.AudioSource",
+    "name": "",
+    "path_id": -4829838142633727608
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "PhysicsDamageable",
+    "path_id": -4826577613696627786
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -4819457105156179186
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": -4779159436112461498,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "Plane",
+    "path_id": -4753478212029078230
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -4750838369778326747
+  },
+  {
+    "type": "ClassIDType.Material",
+    "name": "muzzleflash_red",
+    "path_id": -4741503952451113307
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -4730444223333835115
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": -4719368585041056161,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.AnimationClip",
+    "name": "MiniGun Reload",
+    "path_id": -4715801042578329935
+  },
+  {
+    "type": "ClassIDType.AnimationClip",
+    "name": "AK47_Fire",
+    "path_id": -4678581462166457673
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -4665031253232772137
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -4658396732992812541
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -4591017082785858210
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "StorageFootprintTiles",
+    "path_id": -4581984466258299433,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "AK47",
+    "path_id": -4519600699640534745,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": -4487536226905882137
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -4468378180056366749
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -4351693307132660700
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Barrel",
+    "path_id": -4317415205888411363,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter"
+    ]
+  },
+  {
+    "type": "ClassIDType.Material",
+    "name": "particle_generic_unlit",
+    "path_id": -4300322966247742549
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -4282406631939176003
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": -4273519687666219218,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": -4268284442080698609,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -4238508845119788473
+  },
+  {
+    "type": "ClassIDType.AudioSource",
+    "name": "",
+    "path_id": -4238238564730961007
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -4232469718297858299
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -4216573757362071057
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Grip",
+    "path_id": -4192333231400304616,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -4132726227051339720
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Fire Sound",
+    "path_id": -4085108874729062449,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.AudioSource",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -4062850610553496644
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -4017121819400084556
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -4015082283143729909
+  },
+  {
+    "type": "ClassIDType.BoxCollider",
+    "name": "",
+    "path_id": -3983030371012782416
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -3956282542098990933
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -3938993447016983928
+  },
+  {
+    "type": "ClassIDType.BoxCollider",
+    "name": "",
+    "path_id": -3926993089757912262
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -3916261647297922718
+  },
+  {
+    "type": "ClassIDType.AudioSource",
+    "name": "",
+    "path_id": -3902427024518584834
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Smoke Particles",
+    "path_id": -3871073368924423052,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.ParticleSystem",
+      "ClassIDType.ParticleSystemRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Texture2D",
+    "name": "particle_chunk",
+    "path_id": -3799145710776001005
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "AK47_Magazine",
+    "path_id": -3767698158641982295
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -3763995943562568155
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": -3752056533968481152
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Trigger",
+    "path_id": -3689455556777386642,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -3687597578067112997
+  },
+  {
+    "type": "ClassIDType.AudioClip",
+    "name": "MiniGun Fire",
+    "path_id": -3666612184536052967
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -3657279751871336134
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -3650600912173343440
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -3638801006679057012
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -3581164513681900242
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -3580383720359597202
+  },
+  {
+    "type": "ClassIDType.AnimationClip",
+    "name": "Armature_AK47 Reload",
+    "path_id": -3541851868111803369
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Frame LOD1",
+    "path_id": -3533995503725080151,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "EditionConditionalObject",
+    "path_id": -3523905625844875967
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -3522444022083443910
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "gridunit",
+    "path_id": -3506484746658576827,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Frame",
+    "path_id": -3479839720869775589,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter"
+    ]
+  },
+  {
+    "type": "ClassIDType.ParticleSystemRenderer",
+    "name": "",
+    "path_id": -3467072596177950679
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -3447192586011781339
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -3410475903706710145
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -3382562095481236318
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": -3331245666799568342
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": -3311841385372293428,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": -3302532159929374765,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -3294115625236146314
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -3282312812011605372
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -3261878617943640348
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -3217066982267036986
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Smoke Particles",
+    "path_id": -3211333350388986790,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.ParticleSystem",
+      "ClassIDType.ParticleSystemRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -3195954996149017550
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Flash Orange",
+    "path_id": -3182031405359379658,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -3173507898142617593
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -3109206131998976018
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -3107381564346664671
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -3092573798610669265
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": -3088287368204323654,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MiniGun_Magazine_Stored",
+    "path_id": -3081929284291684828,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -3079263074105198430
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -3075370550217116010
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": -3029764133053189173,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.Material",
+    "name": "gun ray mat",
+    "path_id": -3000882122158219037
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "MiniGun_Magazine",
+    "path_id": -2948117606192114135
+  },
+  {
+    "type": "ClassIDType.ParticleSystem",
+    "name": "",
+    "path_id": -2936409344729482344
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Trigger",
+    "path_id": -2935031455660489809,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2836315409927639528
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -2836056021759394471
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2827082802401440229
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "InteractableObject",
+    "path_id": -2801414956054610489
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2760012156748589408
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine LOD1",
+    "path_id": -2737783556491669442,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2735379337136659055
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -2723102970898650147
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Shell Ejjection Particles",
+    "path_id": -2717049199200765675,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.ParticleSystem",
+      "ClassIDType.ParticleSystemRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Grip",
+    "path_id": -2687321838778969973,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -2686414333965270621
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2679393539545364618
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2669419297435799352
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -2633652784057067058
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": -2608315288186698623
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2595322914286993167
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2589561253193898872
+  },
+  {
+    "type": "ClassIDType.AudioClip",
+    "name": "MinigunWindDown",
+    "path_id": -2566704149275104319
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -2557103519200809341
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2536068962203291169
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2483225170965240981
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MiniGun_Equippable",
+    "path_id": -2481510601895581909,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.Shader",
+    "name": "",
+    "path_id": -2437954453210527100
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Gun",
+    "path_id": -2426840469293416824,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Light",
+    "name": "",
+    "path_id": -2411161117910182363
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -2397661059259594923
+  },
+  {
+    "type": "ClassIDType.Shader",
+    "name": "",
+    "path_id": -2383429423479903051
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -2369396349016578295
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -2368962195093559389
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2351190176373672443
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "gridunit",
+    "path_id": -2335455902845535773,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2298300841267528251
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2296916388495435577
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Slide",
+    "path_id": -2287180358452865998,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "K47",
+    "path_id": -2261433278888677578,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.ParticleSystem",
+    "name": "",
+    "path_id": -2261285607779047535
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": -2145463308887393282
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -2108887610386266827
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -2100327719435817659
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -2079351812416976935
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "AK47_Magazine_AvatarEquippable",
+    "path_id": -2078221163090526398,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "AK47_Stored",
+    "path_id": -2069754473670362292,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -2050297107928079488
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -2005542755858003734
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -1975343795233464297
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": -1970504484071689090
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": -1965786244245424232,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -1937828761882511894
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": -1932111585244900245
+  },
+  {
+    "type": "ClassIDType.Shader",
+    "name": "",
+    "path_id": -1896966161630918582
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -1873883789292715677
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -1851176886766389844
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -1847588231116519762
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -1846387838591343020
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -1828289595946323352
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "AlignmentPoint",
+    "path_id": -1819271462817114513,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Flash Red",
+    "path_id": -1794133203107316364,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.RectTransform",
+    "name": "",
+    "path_id": -1721029913717239867
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -1716869838385671391
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "BuildPoint",
+    "path_id": -1701796504830391388,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -1670308906389672572
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -1665047362526150801
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -1655960943941186391
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -1634841965008611579
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -1565537684843827057
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "AvatarGun",
+    "path_id": -1552813375311808406
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -1453305508719463659
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -1388045322765162159
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -1368360595334571539
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -1365626327533745025
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -1289725531055621928
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -1260494959152627657
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Audio Source (, FX)",
+    "path_id": -1259812286019688089,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.AudioSource",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -1254589337860340834
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -1245936890338284559
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "Equippable_RangedWeapon",
+    "path_id": -1224234625226753386
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Flash Red",
+    "path_id": -1212676049703830074,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -1196704169134336681
+  },
+  {
+    "type": "ClassIDType.BoxCollider",
+    "name": "",
+    "path_id": -1150119299936429873
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -1137670280981497702
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -1039126844901879564
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -1008162501268213130
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine LOD1",
+    "path_id": -927823413566969345,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -914444554712428052
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Flash",
+    "path_id": -889236730923501338,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -870665771031175579
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MiniGun_Magazine_AvatarEquippable",
+    "path_id": -823894089461992219,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -795514867651666201
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -786197613782302294
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": -732907370760645521,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -707330525244093055
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -641922540730982552
+  },
+  {
+    "type": "ClassIDType.BoxCollider",
+    "name": "",
+    "path_id": -631019729323322718
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "Draggable",
+    "path_id": -610970006311773296
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "TileDetector",
+    "path_id": -599232198552573899
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -595978257603715942
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "K47",
+    "path_id": -587821632520358683,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "[0,0]",
+    "path_id": -567554554083875272,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.BoxCollider",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -547453540644908930
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -547233205806266789
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MuzzlePoint",
+    "path_id": -479747630848469713,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Fill Area",
+    "path_id": -469554929238846086,
+    "components": [
+      "ClassIDType.RectTransform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -468968543499382260
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": -448202833621776315,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -430452604272360605
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -426339277682706551
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "StorageFootprintTiles",
+    "path_id": -426087594556507850,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.RectTransform",
+    "name": "",
+    "path_id": -408005452675916910
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -401955475884828724
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": -387709159224378075
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": -362035627177350302,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -356940312797961934
+  },
+  {
+    "type": "ClassIDType.Light",
+    "name": "",
+    "path_id": -272902793778118772
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Muzzle Flash",
+    "path_id": -241055771616215393,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.AnimationClip",
+    "name": "AK47 Idle",
+    "path_id": -223814500254665399
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -201130178498062673
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": -200938522076588356
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -123885856411778822
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -117374765773039325
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "AK47",
+    "path_id": -107523913201889574
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "AK47_Equippable",
+    "path_id": -102486574494324416,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -81489444895649263
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": -75142342499468000
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Barrel",
+    "path_id": -72556001601332493,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Point Light (1)",
+    "path_id": -47312017247125767,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.Light",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": -7637290761325708
+  },
+  {
+    "type": "ClassIDType.AssetBundle",
+    "name": "voidanesguns",
+    "path_id": 1
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 48212289297478204
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 198493798885069678
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 244130434473005385
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 260452710750634374
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 278825944930575022
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 282237661848990059
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "AK47_Magazine_Stored",
+    "path_id": 282241865748241630,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 302157729445688846
+  },
+  {
+    "type": "ClassIDType.Shader",
+    "name": "",
+    "path_id": 377701610244204646
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": 401224511901955235
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 403081913136301484
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 406219693535729714
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 424626966095570762
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Frame",
+    "path_id": 428590952783668428,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 433480829998449060
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 442744580081178115
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 519579275915478412
+  },
+  {
+    "type": "ClassIDType.AudioSource",
+    "name": "",
+    "path_id": 532094085717049642
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 549902116233884240
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 565459981865711957
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 566980699051029980
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "StoredItem",
+    "path_id": 592595703590904145
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Point Light",
+    "path_id": 599756621025770014,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.Light",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "AK47",
+    "path_id": 605168741816369649,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.Animation"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 661575895674880388
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 678832546202765563
+  },
+  {
+    "type": "ClassIDType.AnimationClip",
+    "name": "MiniGun_Fire",
+    "path_id": 684014894300270425
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": 718196606756351986,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 731709788183203112
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 768690928086184945
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "gridunit",
+    "path_id": 771363716303378898,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 773818620137212801
+  },
+  {
+    "type": "ClassIDType.ParticleSystem",
+    "name": "",
+    "path_id": 801811328790857742
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": 808979101692892728
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 820111032892035370
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": 834747640503497280,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "GunRay",
+    "path_id": 924177914908309777,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.CanvasRenderer",
+    "name": "",
+    "path_id": 949396070987056619
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": 981676944625770286
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 997058603603743639
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": 998541716654118222
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 1031604048166779402
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Background",
+    "path_id": 1041230387399906492,
+    "components": [
+      "ClassIDType.RectTransform",
+      "ClassIDType.CanvasRenderer",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 1060563084113050834
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 1096840536200395368
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 1125807584523694286
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 1127922334981152914
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 1247681190073382795
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 1298190252691737801
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 1331797771790435312
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine LOD1",
+    "path_id": 1349457299280833383,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 1406266369671856733
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": 1429017282345145829
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Trigger",
+    "path_id": 1435651924295726928,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Frame LOD1",
+    "path_id": 1437977164393398518,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.ParticleSystemRenderer",
+    "name": "",
+    "path_id": 1442102528432251947
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": 1478936600202710523,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Grip",
+    "path_id": 1486994739958252290,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Grip",
+    "path_id": 1563396257878672780,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 1580114583783099463
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "StorageFootprintTiles",
+    "path_id": 1630570129222632784,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 1672263236596934021
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 1695757947693108906
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 1730707550307417538
+  },
+  {
+    "type": "ClassIDType.AudioSource",
+    "name": "",
+    "path_id": 1740829167120548324
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 1786580520224856665
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": 1795273975280916462
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "gridunit",
+    "path_id": 1799438434871047349,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 1800635953231610848
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 1833220146725018273
+  },
+  {
+    "type": "ClassIDType.Animation",
+    "name": "",
+    "path_id": 1899007114378870107
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": 1908267559748118290,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "ImpactSoundEntity",
+    "path_id": 1920237951344600907
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 1931067290262099960
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 2037767992722097082
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 2043976102650359077
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 2066622054053588305
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 2085484555498280274
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Muzzle Flash",
+    "path_id": 2091188453024351507,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 2102704292784688776
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 2113578179393571365
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 2231947389589878506
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 2256592007623815573
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 2284453660784511595
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 2313100159082870086
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 2319779264914124726
+  },
+  {
+    "type": "ClassIDType.ParticleSystemRenderer",
+    "name": "",
+    "path_id": 2323197905829395543
+  },
+  {
+    "type": "ClassIDType.BoxCollider",
+    "name": "",
+    "path_id": 2333615778411787077
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine_COLL",
+    "path_id": 2351494141715167743,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.BoxCollider"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "Slider",
+    "path_id": 2366043669590847779
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": 2373616144672277279,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": 2432456815151510868
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 2432649838378112706
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": 2434581692288638412,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Trigger",
+    "path_id": 2492381301087580079,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 2528903743776659854
+  },
+  {
+    "type": "ClassIDType.Texture2D",
+    "name": "AK47__Magazine_Icon",
+    "path_id": 2570115480079439039
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 2575369504069518201
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 2588026997369930018
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 2633258874625169176
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 2649765232335754504
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MuzzlePoint",
+    "path_id": 2654756826088631534,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Empty Sound",
+    "path_id": 2668732186759693693,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.AudioSource",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 2676397606828659200
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": 2754982568080572325
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Grip",
+    "path_id": 2770292479265784392,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 2797421915615598901
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": 2803846100524098157,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 2813209081778736647
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 2814270375678737639
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": 2820294955304992697
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": 2826929428344123034,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Texture2D",
+    "name": "AK47__Icon",
+    "path_id": 2923479601538969123
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Shell Ejjection Particles",
+    "path_id": 2945531574090921735,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.ParticleSystem",
+      "ClassIDType.ParticleSystemRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 2962040241670369249
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": 2992428168444925307
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 2999128845383069561
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 3009073259514160372
+  },
+  {
+    "type": "ClassIDType.Sprite",
+    "name": "AK47__Icon",
+    "path_id": 3012669753704890921
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 3053497758627515581
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 3068671687644436094
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "[0,0]",
+    "path_id": 3104110324799998655,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.BoxCollider",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 3142897233606471117
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 3149405238193421017
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": 3219333279150767812
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Shell Ejjection Particles",
+    "path_id": 3220631591730526052,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.ParticleSystem",
+      "ClassIDType.ParticleSystemRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 3227201263245984376
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 3261773937226914011
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 3268071423538779705
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 3280036229998934034
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": 3285823233843770168,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 3288457558001623205
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Flash Orange",
+    "path_id": 3304390202775448674,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 3305332914019184680
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 3307663564552458503
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 3328727990005991884
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 3408499075458001498
+  },
+  {
+    "type": "ClassIDType.BoxCollider",
+    "name": "",
+    "path_id": 3409438904104370930
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": 3412087842725441869,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.Material",
+    "name": "AK47",
+    "path_id": 3412416582078073450
+  },
+  {
+    "type": "ClassIDType.ParticleSystemRenderer",
+    "name": "",
+    "path_id": 3454383884111030716
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": 3472853808744825051,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Flash Orange",
+    "path_id": 3512177673497516676,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": 3515798156800483140
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 3520279356623864735
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": 3617786480303277922
+  },
+  {
+    "type": "ClassIDType.Sprite",
+    "name": "MiniGun__Icon",
+    "path_id": 3663293245830607233
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 3703231156483016969
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 3779505612550514056
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "TrashItem",
+    "path_id": 3790179986085819318
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 3791505917531930813
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 3797733078368317420
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 3834192660274793874
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 3877445193067079286
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 3879692018432390642
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 3918283970029969363
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 3982327439475691797
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": 4014323750864370576,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 4105921181761496471
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": 4106409802423553363,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet 2nd",
+    "path_id": 4131292619976116663,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 4186549861165498327
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 4267998884467330426
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "[0.0]",
+    "path_id": 4310029480731412041,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.BoxCollider",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 4316251515975937732
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Barrel",
+    "path_id": 4444668003495102485,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 4447039898388109364
+  },
+  {
+    "type": "ClassIDType.AnimationClip",
+    "name": "MiniGun Windup",
+    "path_id": 4454879286407795279
+  },
+  {
+    "type": "ClassIDType.RectTransform",
+    "name": "",
+    "path_id": 4463965459983807738
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": 4466211978813045782
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 4490543722070707135
+  },
+  {
+    "type": "ClassIDType.AnimationClip",
+    "name": "MiniGun Holding",
+    "path_id": 4570867101853244483
+  },
+  {
+    "type": "ClassIDType.AnimatorController",
+    "name": "HandgunAnimator",
+    "path_id": 4572097945594379147
+  },
+  {
+    "type": "ClassIDType.ParticleSystemRenderer",
+    "name": "",
+    "path_id": 4620088885689976403
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 4623304754860716483
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 4625035135072926449
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 4635192201281645104
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 4706809436740674381
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Flash Orange",
+    "path_id": 4714774856314467114,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 4756539884261611439
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 4773870228101293544
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 4779594051107911649
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 4789724821959793866
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 4797916159097820481
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 4799782818520801929
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 4853479842670074902
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 4890853964702425231
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Windup Sound",
+    "path_id": 4899070420789034639,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.AudioSource",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 4915099009434905196
+  },
+  {
+    "type": "ClassIDType.Light",
+    "name": "",
+    "path_id": 4924020386377685889
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Model",
+    "path_id": 4931884774753327934,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Texture2D",
+    "name": "AK47_Normal",
+    "path_id": 5018111119362453453
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 5028541991970908673
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine LOD1",
+    "path_id": 5043314136976943736,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": 5080287146813115837,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Animation",
+    "name": "",
+    "path_id": 5083443486338403667
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "K47",
+    "path_id": 5091962724487645778,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 5109809642577425864
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": 5133670759229499619
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "AvatarEquippable",
+    "path_id": 5146630082887235923
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 5203889561328014637
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 5215077269561075826
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 5271353215533947389
+  },
+  {
+    "type": "ClassIDType.CanvasRenderer",
+    "name": "",
+    "path_id": 5279853892897377998
+  },
+  {
+    "type": "ClassIDType.Sprite",
+    "name": "AK47__Magazine_Icon",
+    "path_id": 5290640154660139532
+  },
+  {
+    "type": "ClassIDType.Sprite",
+    "name": "MiniGun__Magazine_Icon",
+    "path_id": 5291863036511212545
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 5313865564196360090
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 5323367189674133873
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 5435015606222760029
+  },
+  {
+    "type": "ClassIDType.Material",
+    "name": "MiniGun",
+    "path_id": 5435693673514892855
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 5443352130427753604
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 5490375925959701817
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 5588376368018642289
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 5596667811105924997
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 5601525883825153915
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 5648858067442840595
+  },
+  {
+    "type": "ClassIDType.Rigidbody",
+    "name": "",
+    "path_id": 5650198068712627027
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 5655452468081943383
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 5699752521823724941
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 5705984626638645758
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MiniGun_Magazine_Equippable",
+    "path_id": 5749254077328435008,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Slide",
+    "path_id": 5754519176721936834,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": 5882304218944380211
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 5944850421397153657
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 5951875740869911730
+  },
+  {
+    "type": "ClassIDType.ParticleSystemRenderer",
+    "name": "",
+    "path_id": 5960317361801950237
+  },
+  {
+    "type": "ClassIDType.Animation",
+    "name": "",
+    "path_id": 5989790001660065654
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": 6034078321052879591,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": 6104795679542639695,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 6123705894768709591
+  },
+  {
+    "type": "ClassIDType.Light",
+    "name": "",
+    "path_id": 6125060227231776897
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 6156311889304325744
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Fill",
+    "path_id": 6197023170198448335,
+    "components": [
+      "ClassIDType.RectTransform",
+      "ClassIDType.CanvasRenderer",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 6236019364675054595
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 6299217109978738585
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "AK47_Magazine_Trash",
+    "path_id": 6328760406146027018,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.Rigidbody",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 6333218743965150908
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 6396020216187807780
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 6396109758880981942
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "AK47",
+    "path_id": 6485980232164980629,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 6488737448609751040
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 6515041404088673594
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 6523320328370717162
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Barrel",
+    "path_id": 6547628826888231083,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Barrel",
+    "path_id": 6603439154264954925,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.AudioClip",
+    "name": "ak47_reloading",
+    "path_id": 6618720333777580600
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 6619135096641265945
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 6634878169399242170
+  },
+  {
+    "type": "ClassIDType.AudioSource",
+    "name": "",
+    "path_id": 6651355684822874385
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 6663842842623205851
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 6717169062433013887
+  },
+  {
+    "type": "ClassIDType.RectTransform",
+    "name": "",
+    "path_id": 6723935740884365822
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 6740442245895571692
+  },
+  {
+    "type": "ClassIDType.AudioSource",
+    "name": "",
+    "path_id": 6748166066718990011
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 6754474690957276076
+  },
+  {
+    "type": "ClassIDType.Light",
+    "name": "",
+    "path_id": 6802625506317112882
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Audio Source (, FX)",
+    "path_id": 6812862882373793920,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.AudioSource",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Alignment",
+    "path_id": 6820661250205082356,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.ParticleSystemRenderer",
+    "name": "",
+    "path_id": 6840654475907842736
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "UniversalAdditionalLightData",
+    "path_id": 6867360251947594959
+  },
+  {
+    "type": "ClassIDType.Texture2D",
+    "name": "7.62x39mm Bullet",
+    "path_id": 6891712521752080760
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine LOD1",
+    "path_id": 6895779305902168683,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Frame",
+    "path_id": 6917203007569882138,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 6921714964819196303
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 6927575647862403133
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7005957304544330990
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Frame",
+    "path_id": 7041461107372738563,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": 7042871691866369640,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7189926709781435648
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7208875488519988475
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7243675427539492195
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 7264011550262583916
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 7313025721710756808
+  },
+  {
+    "type": "ClassIDType.Shader",
+    "name": "",
+    "path_id": 7321788819666400069
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 7323427838129211342
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 7329259729605252521
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7333417614292622967
+  },
+  {
+    "type": "ClassIDType.Texture2D",
+    "name": "MiniGun__Icon",
+    "path_id": 7372454579136812324
+  },
+  {
+    "type": "ClassIDType.AudioSource",
+    "name": "",
+    "path_id": 7387107029850817520
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7388667843442673614
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Model",
+    "path_id": 7392910257352320360,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7426897572186863167
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": 7432631045455207791,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7494811929275006863
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": 7500786492847373877,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 7529686070537809963
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Slide",
+    "path_id": 7545543592748298933,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Model",
+    "path_id": 7561154813137324822,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MiniGun",
+    "path_id": 7617591832949426962,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "BuildPoint",
+    "path_id": 7654466464550217250,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Windup Indicator",
+    "path_id": 7662577319343983148,
+    "components": [
+      "ClassIDType.RectTransform",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Flash Red",
+    "path_id": 7663011204247232846,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7741597958363281564
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "Cylinder.001",
+    "path_id": 7746353788379022490
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 7751993303858558764
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7755538712288101904
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Fire Sound",
+    "path_id": 7787432063249394002,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.AudioSource",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 7805630036780314639
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine LOD1",
+    "path_id": 7839337729897408040,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "Equippable_Viewmodel",
+    "path_id": 7854458409157046588
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x39mm Bullet",
+    "path_id": 7870836956574253499,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 7892370739622479015
+  },
+  {
+    "type": "ClassIDType.AnimationClip",
+    "name": "AK47 Aiming",
+    "path_id": 7922886368989081972
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7931010213992513251
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "BuildPoint",
+    "path_id": 7931822165173441103,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7951675231273919222
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7966340604434289458
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 7972587900078117405
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 7975694765946649591
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 7979962482936459196
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "MiniGun",
+    "path_id": 7994419444712510489
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": 8041798774631377200,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 8053235525350964707
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Shell Ejjection Particles",
+    "path_id": 8053667945620241917,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.ParticleSystem",
+      "ClassIDType.ParticleSystemRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 8071989574901888436
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 8074609510950460806
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 8090865140895732372
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 8102404266235846145
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 8133232908011997452
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 8212059456686990051
+  },
+  {
+    "type": "ClassIDType.MonoBehaviour",
+    "name": "",
+    "path_id": 8217557978649195359
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Alignment",
+    "path_id": 8272210195233358672,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": 8276029644117752828,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MiniGun_Stored",
+    "path_id": 8277247118513205069,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 8282852397252133983
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Frame",
+    "path_id": 8296566217958705875,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.AudioClip",
+    "name": "MiniGun Spin",
+    "path_id": 8298114955928842281
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Grip",
+    "path_id": 8309188753008303727,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "AK47",
+    "path_id": 8320479118473194424,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.Animation",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.Material",
+    "name": "muzzleflash_orange",
+    "path_id": 8345248787392781236
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 8363120497060540855
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 8375003096120388340
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 8390019679627046533
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": 8449610309499455649
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "[0,0]",
+    "path_id": 8453438051038239963,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.BoxCollider",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "PlayAnimation",
+    "path_id": 8474726571266877088
+  },
+  {
+    "type": "ClassIDType.AudioSource",
+    "name": "",
+    "path_id": 8478046235694566183
+  },
+  {
+    "type": "ClassIDType.MonoScript",
+    "name": "IntegerItemDefinition",
+    "path_id": 8545285980222634536
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 8562816864433921799
+  },
+  {
+    "type": "ClassIDType.Light",
+    "name": "",
+    "path_id": 8584934518329539263
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 8593234315723526947
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Point Light",
+    "path_id": 8627999245188109539,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.Light",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 8636955753661244159
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 8646234525096920298
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 8673133406490888622
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": 8691245415292574770,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 8704916398083261245
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 8711736797363253424
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "MiniGun",
+    "path_id": 8719035653297803298,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.Animation",
+      "ClassIDType.MonoBehaviour",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 8790904703280734171
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Frame",
+    "path_id": 8816278350366323742,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.LODGroup",
+    "name": "",
+    "path_id": 8860316289035152546
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 8861128182875872078
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Muzzle Flash",
+    "path_id": 8880702096145236897,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 8909360462267829363
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 8950028439706532470
+  },
+  {
+    "type": "ClassIDType.MeshRenderer",
+    "name": "",
+    "path_id": 8954220360767278361
+  },
+  {
+    "type": "ClassIDType.MeshFilter",
+    "name": "",
+    "path_id": 8980658151709299472
+  },
+  {
+    "type": "ClassIDType.ParticleSystem",
+    "name": "",
+    "path_id": 9029079354075190435
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Reload Sound",
+    "path_id": 9060388028136134726,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.AudioSource",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 9070025886689290173
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Magazine",
+    "path_id": 9092237760834627943,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer",
+      "ClassIDType.LODGroup"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Empty Sound",
+    "path_id": 9098612114846162788,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.AudioSource",
+      "ClassIDType.MonoBehaviour"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 9102995086043573382
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 9136174151758006128
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Gun",
+    "path_id": 9151957249914361954,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 9171701526421678759
+  },
+  {
+    "type": "ClassIDType.Transform",
+    "name": "",
+    "path_id": 9180753000456857600
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "7.62x51mm Bullet",
+    "path_id": 9198554894295131068,
+    "components": [
+      "ClassIDType.Transform"
+    ]
+  },
+  {
+    "type": "ClassIDType.GameObject",
+    "name": "Frame LOD1",
+    "path_id": 9199036642456223123,
+    "components": [
+      "ClassIDType.Transform",
+      "ClassIDType.MeshFilter",
+      "ClassIDType.MeshRenderer"
+    ]
+  },
+  {
+    "type": "ClassIDType.Mesh",
+    "name": "default",
+    "path_id": 9220432885260574356
+  }
+]

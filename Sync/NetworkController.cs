@@ -26,24 +26,20 @@ namespace MoreGuns.Sync
             bool isHost = Lobby.Instance?.IsHost == true;
             bool isClient = Lobby.Instance?.IsHost == false && Lobby.Instance?.IsInLobby == true;
 
-            MelonLogger.Msg($"Player joined with ID: {Compat.LocalPlayerId()}. Syncing configuration file.");
             payload = new StringBuilder();
             payload.Append($"{IDENTIFICATION_PREFIX}_{version}|");
 
             if (isHost || forceHost)
             {
-                MelonLogger.Msg($"Host player");
                 MelonCoroutines.Start(SyncHostToLobbyPayload());
                 Lobby.Instance.SetLobbyData("MoreGunsConfig", payload.ToString());
             }
             else if (isClient || forceClient)
             {
-                MelonLogger.Msg("Client loaded!");
                 MelonCoroutines.Start(WaitOnLobbyPayload());
             }
             else
             {
-                MelonLogger.Msg("Other side loaded.");
                 foreach (var weapon in WeaponBase.allWeapons)
                 {
                     weapon.ApplySettingsFromConfig();
@@ -75,12 +71,7 @@ namespace MoreGuns.Sync
 
                 weapon.ApplySettingsFromConfig();
                 while (!weapon.IsConfigurationFinished)
-                {
-                    MelonLogger.Msg("config not ready");
                     yield return new WaitForSeconds(0.05F);
-                }
-
-                MelonLogger.Msg($"Adding {weapon.ID} gun to payload");
 
                 payload.Append($"@{weapon.ID}" +
                 $":" +
@@ -112,13 +103,11 @@ namespace MoreGuns.Sync
                 $"{weapon.ammoGun.Price}:" +
                 $"{weapon.ammoGun.IsAvailable}:" +
                 $"{weapon.ammoGun.NotAvailableReason}");
-                MelonLogger.Msg($"init {weapon.ID}");
             }
         }
 
         private static void HostToClientConfigurationSync(string data)
         {
-            MelonLogger.Msg($"Data: {data}");
             string[] dataVersion = data.Split('|').Where(item => !string.IsNullOrEmpty(item)).ToArray();
             if (!IsModValidForSync(dataVersion[0]))
             {

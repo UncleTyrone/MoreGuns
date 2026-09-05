@@ -11,13 +11,13 @@
     "C:\\Users\\Jeff\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.5.2",
+    "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Schedule I\\MoreGuns\\MoreGuns.csproj",
-      "projectName": "MoreGunsMono",
-      "projectPath": "D:\\Schedule I\\MoreGuns\\MoreGuns.csproj",
+      "projectUniqueName": "D:\\Schedule I\\MoreGuns\\tools\\_inspect_avatar\\inspect_avatar.csproj",
+      "projectName": "inspect_avatar",
+      "projectPath": "D:\\Schedule I\\MoreGuns\\tools\\_inspect_avatar\\inspect_avatar.csproj",
       "packagesPath": "C:\\Users\\Jeff\\.nuget\\packages\\",
-      "outputPath": "D:\\Schedule I\\MoreGuns\\obj\\",
+      "outputPath": "D:\\Schedule I\\MoreGuns\\tools\\_inspect_avatar\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Jeff\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -63,6 +63,10 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
             "version": "[6.0.36, 6.0.36]"
           },
           {

@@ -1,0 +1,15 @@
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\bin\Release\net6.0\inspect_avatar.exe
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\bin\Release\net6.0\inspect_avatar.deps.json
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\bin\Release\net6.0\inspect_avatar.runtimeconfig.json
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\bin\Release\net6.0\inspect_avatar.dll
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\bin\Release\net6.0\inspect_avatar.pdb
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\obj\Release\net6.0\inspect_avatar.GeneratedMSBuildEditorConfig.editorconfig
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\obj\Release\net6.0\inspect_avatar.AssemblyInfoInputs.cache
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\obj\Release\net6.0\inspect_avatar.AssemblyInfo.cs
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\obj\Release\net6.0\inspect_avatar.csproj.CoreCompileInputs.cache
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\obj\Release\net6.0\inspect_avatar.sourcelink.json
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\obj\Release\net6.0\inspect_avatar.dll
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\obj\Release\net6.0\refint\inspect_avatar.dll
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\obj\Release\net6.0\inspect_avatar.pdb
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\obj\Release\net6.0\inspect_avatar.genruntimeconfig.cache
+D:\Schedule I\MoreGuns\tools\_inspect_avatar\obj\Release\net6.0\ref\inspect_avatar.dll

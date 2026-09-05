@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(MoreGunsMod), "MoreGuns", "1.6.1", "Voidane")]
+[assembly: MelonInfo(typeof(MoreGunsMod), "MoreGuns", "1.6.3", "Voidane")]
 [assembly: MelonGame("TVGS", "Schedule I")]
 [assembly: HarmonyDontPatchAll]
 

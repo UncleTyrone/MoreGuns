@@ -41,7 +41,7 @@ namespace MoreGuns.Guns
         /// True once every weapon that started loading has either finished or given up. Consumers
         /// such as the shop injector need this because loading runs on a coroutine.
         /// </summary>
-        public static bool AllWeaponsLoaded => startedLoads > 0 && pendingLoads == 0;
+        public static bool AllWeaponsLoaded => startedLoads > 0 && pendingLoads <= 0;
         private static int pendingLoads;
         private static int startedLoads;
 
@@ -192,7 +192,8 @@ namespace MoreGuns.Guns
             allWeapons.Add(this);
             weaponsByName[ID] = this;
 
-            pendingLoads--;
+            // pendingLoads is decremented in LoadGun's finally — do not decrement here or
+            // AllWeaponsLoaded stays false forever and shop/registry wait the full 60s timeout.
             MelonLogger.Msg($"Finished initializing {ID}.");
             ItemRegistryPatch.RegisterWeapons();
             // Shop inject runs after Harmony in OnSceneWasLoaded (Awake is often already past).
@@ -220,9 +221,36 @@ namespace MoreGuns.Guns
 
             if (gunHandgun != null)
             {
-                var avatar = gunHandgun.GetComponent<AvatarEquippable>();
+                AvatarEquippable avatar = gunHandgun.GetComponent<AvatarEquippable>()
+                    ?? gunHandgun.GetComponentInChildren<AvatarEquippable>(true);
+                try
+                {
+                    AvatarRangedWeapon ranged = gunHandgun.GetComponent<AvatarRangedWeapon>()
+                        ?? gunHandgun.GetComponentInChildren<AvatarRangedWeapon>(true);
+                    if (ranged != null)
+                        avatar = ranged;
+                }
+                catch { }
+
                 if (avatar != null)
+                {
+                    // Required so FishNet SetEquippable_Networked resolves on other clients.
+                    string pathByName = $"Avatar/Equippables/{this.name}";
+                    string pathById = $"Avatar/Equippables/{ID}";
+                    try { avatar.AssetPath = pathByName; }
+                    catch { GameAccess.Set(avatar, "AssetPath", pathByName); }
+
+                    // AvatarGun→AvatarRangedWeapon remap often drops AlignmentPoint/FireSound/Muzzle refs.
+                    Patches.SetEquippablePatch.EnsureAvatarWeaponRefs(avatar);
+
                     gunRangedWeapon.AvatarEquippable = avatar;
+                    MoreGunsMod.RegisterAsset(pathByName, gunHandgun);
+                    MoreGunsMod.RegisterAsset(pathById, gunHandgun);
+                }
+                else
+                {
+                    MelonLogger.Error($"{ID}: avatar equippable prefab has no AvatarEquippable — remotes will not see/hear this gun.");
+                }
             }
         }
 

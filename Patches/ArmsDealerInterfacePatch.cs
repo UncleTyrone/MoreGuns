@@ -133,7 +133,10 @@ namespace MoreGuns.Patches
             }
 
             if (added > 0)
+            {
                 GameAccess.RefreshShownItems(shop);
+                MelonLogger.Msg($"Added {added} MoreGuns listing(s) to {SHOP_OBJECT_NAME}.");
+            }
         }
 
         private static ShopListing FindTemplate(ShopInterface shop)

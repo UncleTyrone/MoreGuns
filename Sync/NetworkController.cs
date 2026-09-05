@@ -1,5 +1,6 @@
 ﻿using MelonLoader;
 using MoreGuns.Guns;
+using System;
 using System.Collections;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,6 @@ namespace MoreGuns.Sync
             if (isHost || forceHost)
             {
                 MelonCoroutines.Start(SyncHostToLobbyPayload());
-                Lobby.Instance.SetLobbyData("MoreGunsConfig", payload.ToString());
             }
             else if (isClient || forceClient)
             {
@@ -53,7 +53,7 @@ namespace MoreGuns.Sync
             while (true)
             {
                 string data = SteamMatchmaking.GetLobbyData(Compat.LobbySteamId(), "MoreGunsConfig");
-                if (!string.IsNullOrEmpty(data))
+                if (!string.IsNullOrEmpty(data) && data.IndexOf('@') >= 0)
                 {
                     HostToClientConfigurationSync(data);
                     yield break;
@@ -103,6 +103,17 @@ namespace MoreGuns.Sync
                 $"{weapon.ammoGun.Price}:" +
                 $"{weapon.ammoGun.IsAvailable}:" +
                 $"{weapon.ammoGun.NotAvailableReason}");
+            }
+
+            // Publish only after the full payload is built — early SetLobbyData sent a header-only string.
+            try
+            {
+                if (Lobby.Instance != null && (Lobby.Instance.IsHost || forceHost))
+                    Lobby.Instance.SetLobbyData("MoreGunsConfig", payload.ToString());
+            }
+            catch (Exception ex)
+            {
+                MelonLogger.Warning($"Failed to publish MoreGuns lobby config: {ex.Message}");
             }
         }
 

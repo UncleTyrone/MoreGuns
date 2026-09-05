@@ -2,6 +2,7 @@
 using System;
 using UnityEngine;
 #if IL2CPP
+using Il2CppInterop.Runtime.Attributes;
 using Il2CppInterop.Runtime.Injection;
 using Il2CppInterop.Runtime.InteropTypes.Fields;
 #endif
@@ -58,6 +59,10 @@ namespace MoreGuns.Guns
         public bool ExplosiveRounds => explosiveRounds;
 #endif
 
+        // GunTuning is managed-only; do not expose Apply to the Il2Cpp injector.
+#if IL2CPP
+        [HideFromIl2Cpp]
+#endif
         public void Apply(GunTuning tuning)
         {
             if (tuning == null)

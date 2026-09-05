@@ -14,9 +14,16 @@ namespace MoreGuns
         public static Vector3 LastMuzzleWorldPos { get; private set; }
         public static bool HasLastMuzzle { get; private set; }
 
+        /// <summary>
+        /// Only true during local player Fire(). Never leave this set — NPC CreateBulletTrail
+        /// must not steal the player's last muzzle or tracers vanish / spawn on the player.
+        /// </summary>
+        public static bool RedirectPlayerTrail { get; set; }
+
         public static void Align(GameObject root, string bodyToken)
         {
             HasLastMuzzle = false;
+            RedirectPlayerTrail = false;
             if (root == null)
                 return;
 
@@ -62,6 +69,7 @@ namespace MoreGuns
         public static void RememberFrom(Equippable_RangedWeapon weapon)
         {
             HasLastMuzzle = false;
+            RedirectPlayerTrail = false;
             if (weapon == null)
                 return;
             try
@@ -71,6 +79,7 @@ namespace MoreGuns
                     return;
                 LastMuzzleWorldPos = muzzle.position;
                 HasLastMuzzle = true;
+                RedirectPlayerTrail = true;
             }
             catch { }
         }

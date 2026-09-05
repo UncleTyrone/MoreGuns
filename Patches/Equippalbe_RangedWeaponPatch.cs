@@ -118,17 +118,22 @@ namespace MoreGuns.Patches
         [HarmonyPrefix]
         public static void PrefixBulletTrail(ref Vector3 start)
         {
-            if (!MuzzleAligner.HasLastMuzzle)
+            // Only rewrite the trail for the local player's Fire this frame.
+            // Leaving HasLastMuzzle sticky redirected NPC tracers onto the player muzzle
+            // (often zero-length after a self-hit raycast — invisible cop bullets).
+            if (!MuzzleAligner.RedirectPlayerTrail || !MuzzleAligner.HasLastMuzzle)
                 return;
 
-            // Keep aim direction from camera; only move the visible tracer origin to the muzzle.
             start = MuzzleAligner.LastMuzzleWorldPos;
+            MuzzleAligner.RedirectPlayerTrail = false;
         }
 
         [HarmonyPatch(typeof(Equippable_RangedWeapon), "Fire")]
         [HarmonyPostfix]
         public static void PostfixFire(Equippable_RangedWeapon __instance)
         {
+            MuzzleAligner.RedirectPlayerTrail = false;
+
             GunSettings settings = GunSettings.EnsureOn(__instance);
             if (settings == null)
                 return;

@@ -76,7 +76,7 @@ namespace MoreGuns
                 return;
             }
 
-            // Apply Harmony after scene load to avoid the CLR 0x80131306 crash.
+            // Apply Harmony after scene load to avoid the CLR 0x80131506 crash.
             // PatchAll during OnInitializeMelon triggers MonoMod's JIT hook too early.
             if (!harmonyApplied)
             {

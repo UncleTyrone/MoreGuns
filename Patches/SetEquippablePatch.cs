@@ -76,6 +76,9 @@ namespace MoreGuns.Patches
             {
                 GameAccess.SetCurrentEquippable(__instance, avatarEquippable);
                 avatarEquippable.Equip(__instance);
+                // Equip() can overwrite AnimationTrigger with the prefab's one-hand pistol hold.
+                EnsureAvatarWeaponRefs(avatarEquippable);
+                MelonCoroutines.Start(ReapplyHoldNextFrame(avatarEquippable));
                 __result = avatarEquippable;
             }
             catch (System.Exception ex)
@@ -88,6 +91,26 @@ namespace MoreGuns.Patches
             }
 
             return false;
+        }
+
+        private static System.Collections.IEnumerator ReapplyHoldNextFrame(AvatarEquippable equippable)
+        {
+            yield return null;
+            yield return null;
+            if (!Tools.Alive(equippable))
+                yield break;
+            EnsureAvatarWeaponRefs(equippable);
+            // Nudge the animator onto the two-hand grip if it still has the pistol hold.
+            try
+            {
+                string hold = equippable.AnimationTrigger;
+                if (!string.IsNullOrEmpty(hold))
+                {
+                    GameAccess.Call(equippable, "ResetTrigger", hold);
+                    GameAccess.Call(equippable, "SetTrigger", hold);
+                }
+            }
+            catch { }
         }
 
         /// <summary>
@@ -114,34 +137,195 @@ namespace MoreGuns.Patches
         }
 
         /// <summary>
-        /// Fire() sends networked Shoot before applying damage. Null FireSound in Shoot throws
-        /// and aborts Fire mid-way — which is why custom guns dealt no damage.
+        /// NPC/avatar shots go through Shoot(Vector3). Null FireSound used to NRE and abort the
+        /// whole method (no recoil/ammo). Skipping Shoot also killed any muzzle/flash feedback.
+        /// Always ensure refs, then let vanilla run; spawn a visible tracer for non-local avatars.
         /// </summary>
-        [HarmonyPatch(typeof(AvatarRangedWeapon), "Shoot")]
+        [HarmonyPatch(typeof(AvatarRangedWeapon), "Shoot", new[] { typeof(Vector3) })]
         [HarmonyPrefix]
-        public static bool ShootPrefix(AvatarRangedWeapon __instance)
+        public static bool ShootPrefix(AvatarRangedWeapon __instance, Vector3 endPoint)
         {
             if (!Tools.Alive(__instance))
                 return false;
 
             EnsureAvatarWeaponRefs(__instance);
-            if (Tools.Alive(__instance.FireSound))
-                return true;
 
-            // Skip vanilla Shoot (FireSound.DuplicateAndPlayOneShot would NRE). Damage still
-            // applies in Equippable_RangedWeapon.Fire after this message returns.
+            // Still no sound — don't enter vanilla Shoot (DuplicateAndPlayOneShot NREs).
+            // Postfix still runs and spawns the visible tracer.
+            if (!Tools.Alive(__instance.FireSound))
+            {
+                ManualAvatarShoot(__instance);
+                return false;
+            }
+
+            return true;
+        }
+
+        [HarmonyPatch(typeof(AvatarRangedWeapon), "Shoot", new[] { typeof(Vector3) })]
+        [HarmonyPostfix]
+        public static void ShootPostfix(AvatarRangedWeapon __instance, Vector3 endPoint)
+        {
+            SpawnAvatarBulletTrail(__instance, endPoint);
+        }
+
+        /// <summary>
+        /// Public entry for NPC Shoot messages — more reliable on Il2Cpp than patching protected Shoot.
+        /// </summary>
+        [HarmonyPatch(typeof(GameAvatar), nameof(GameAvatar.ReceiveEquippableMessage))]
+        [HarmonyPostfix]
+        public static void ReceiveEquippableMessagePostfix(GameAvatar __instance, string message, object data)
+        {
+            if (!Tools.Alive(__instance))
+                return;
+            if (!string.Equals(message, "Shoot", System.StringComparison.Ordinal))
+                return;
+            if (!TryReadVector3(data, out Vector3 endPoint))
+                return;
+
+            AvatarRangedWeapon ranged = null;
             try
             {
-                if (!string.IsNullOrEmpty(__instance.RecoilAnimationTrigger))
+                AvatarEquippable eq = __instance.CurrentEquippable;
+                ranged = eq as AvatarRangedWeapon;
+                if (!Tools.Alive(ranged) && Tools.Alive(eq))
+                    ranged = eq.GetComponent<AvatarRangedWeapon>();
+            }
+            catch { }
+
+            SpawnAvatarBulletTrail(ranged, endPoint);
+        }
+
+        private static void ManualAvatarShoot(AvatarRangedWeapon ranged)
+        {
+            try { ranged.Attack(); }
+            catch
+            {
+                try { GameAccess.Call(ranged, "Attack"); }
+                catch { }
+            }
+
+            try
+            {
+                if (!string.IsNullOrEmpty(ranged.RecoilAnimationTrigger))
                 {
-                    GameAccess.Call(__instance, "ResetTrigger", __instance.RecoilAnimationTrigger);
-                    GameAccess.Call(__instance, "SetTrigger", __instance.RecoilAnimationTrigger);
+                    GameAccess.Call(ranged, "ResetTrigger", ranged.RecoilAnimationTrigger);
+                    GameAccess.Call(ranged, "SetTrigger", ranged.RecoilAnimationTrigger);
                 }
             }
             catch { }
 
+            try { GameAccess.Set(ranged, "timeSinceLastShot", 0f); }
+            catch { }
+        }
+
+        private static bool TryReadVector3(object data, out Vector3 value)
+        {
+            value = default;
+            if (data == null)
+                return false;
+            try
+            {
+                if (data is Vector3 v)
+                {
+                    value = v;
+                    return true;
+                }
+            }
+            catch { }
+
+            try
+            {
+                value = (Vector3)data;
+                return true;
+            }
+            catch { }
+
+#if IL2CPP
+            try
+            {
+                if (data is Il2CppSystem.Object boxed)
+                {
+                    value = boxed.Unbox<Vector3>();
+                    return true;
+                }
+            }
+            catch { }
+#endif
             return false;
         }
+
+        private static void SpawnAvatarBulletTrail(AvatarRangedWeapon ranged, Vector3 endPoint)
+        {
+            if (!Tools.Alive(ranged))
+                return;
+
+            // Local player FP Fire already creates a trail — don't double it on the TP avatar.
+            try
+            {
+                Player owner = ranged.GetComponentInParent<Player>();
+                if (owner != null && owner.IsOwner)
+                    return;
+            }
+            catch { }
+
+            // Deduplicate Shoot postfix + ReceiveEquippableMessage postfix on the same shot.
+            int id;
+            try { id = ranged.GetInstanceID(); }
+            catch { id = 0; }
+            float now = Time.unscaledTime;
+            if (id != 0
+                && id == _lastTrailWeaponId
+                && now - _lastTrailTime < 0.04f
+                && (endPoint - _lastTrailEnd).sqrMagnitude < 0.01f)
+                return;
+            _lastTrailWeaponId = id;
+            _lastTrailTime = now;
+            _lastTrailEnd = endPoint;
+
+            // Never let player-muzzle redirect steal this NPC tracer origin.
+            MuzzleAligner.RedirectPlayerTrail = false;
+
+            Transform muzzle = null;
+            try { muzzle = ranged.MuzzlePoint; }
+            catch { }
+            if (!Tools.Alive(muzzle))
+                muzzle = ranged.transform;
+
+            Vector3 start = muzzle.position;
+            Vector3 delta = endPoint - start;
+            float dist = delta.magnitude;
+            if (dist < 0.08f)
+                return;
+
+            Vector3 dir = delta / dist;
+            float speed = 95f;
+            // Use the aim point distance — MaxUseRange can be huge and confuses the pool raycast.
+            float range = dist;
+
+            try
+            {
+                if (!Singleton<FXManager>.InstanceExists)
+                    return;
+                FXManager fx = Singleton<FXManager>.Instance;
+                if (fx == null)
+                    return;
+
+                LayerMask mask = ~0;
+                try
+                {
+                    if (NetworkSingleton<CombatManager>.InstanceExists)
+                        mask = NetworkSingleton<CombatManager>.Instance.RangedWeaponLayerMask;
+                }
+                catch { }
+
+                fx.CreateBulletTrail(start, dir, speed, range, mask);
+            }
+            catch { }
+        }
+
+        private static int _lastTrailWeaponId;
+        private static float _lastTrailTime;
+        private static Vector3 _lastTrailEnd;
 
         internal static void EnsureAvatarWeaponRefs(AvatarEquippable equippable)
         {
@@ -162,11 +346,56 @@ namespace MoreGuns.Patches
             EnsureMuzzlePoint(ranged);
             EnsureFireSound(ranged);
             EnsureRangedAnimationTriggers(ranged);
+            EnsureUseRanges(ranged);
+            EnsureSuccessfulHitEvent(ranged);
         }
 
         /// <summary>
-        /// AvatarGun→AvatarRangedWeapon remap drops hold poses. Force two-hand rifle grips for
-        /// all MoreGuns long guns (AK/SMG/sniper/minigun/RPG) — same path cops and co-op remotes use.
+        /// AvatarGun→AvatarRangedWeapon remap often leaves onSuccessfulHit null. CombatBehaviour
+        /// ClearWeapon/SetWeapon call Add/RemoveListener and NRE without this UnityEvent.
+        /// </summary>
+        private static void EnsureSuccessfulHitEvent(AvatarWeapon weapon)
+        {
+            if (!Tools.Alive(weapon))
+                return;
+            try
+            {
+                if (weapon.onSuccessfulHit != null)
+                    return;
+            }
+            catch { }
+
+            try
+            {
+                weapon.onSuccessfulHit = new UnityEngine.Events.UnityEvent();
+            }
+            catch
+            {
+                try { GameAccess.Set(weapon, "onSuccessfulHit", new UnityEngine.Events.UnityEvent()); }
+                catch { }
+            }
+        }
+
+        private static void EnsureUseRanges(AvatarRangedWeapon ranged)
+        {
+            if (!Tools.Alive(ranged))
+                return;
+            try
+            {
+                // AvatarGun→AvatarRangedWeapon remap often leaves MaxUseRange at the 1m default,
+                // so NPC AI never thinks the player is in shoot range.
+                if (ranged.MaxUseRange < 8f)
+                    ranged.MaxUseRange = 18f;
+                if (ranged.MinUseRange <= 0.01f || ranged.MinUseRange > 5f)
+                    ranged.MinUseRange = 1.5f;
+            }
+            catch { }
+        }
+
+        /// <summary>
+        /// AvatarGun→AvatarRangedWeapon remap drops hold poses.
+        /// AK/sniper/minigun/RPG use shotgun-style two-hand grips; SMG uses M1911 two-hand pistol
+        /// grips so both hands stay on the handle (rifle hold leaves a floating support hand).
         /// </summary>
         private static string _rifleHold;
         private static string _rifleLowered;
@@ -176,6 +405,14 @@ namespace MoreGuns.Patches
         private static bool _rifleTriggerTypeValid;
         private static AvatarEquippable.ETriggerType _rifleTriggerType;
 
+        private static string _pistolHold;
+        private static string _pistolLowered;
+        private static string _pistolRaised;
+        private static string _pistolRecoil;
+        private static bool _pistolAnimCached;
+        private static bool _pistolTriggerTypeValid;
+        private static AvatarEquippable.ETriggerType _pistolTriggerType;
+
         private static void EnsureRifleHoldAnimations(AvatarEquippable equippable)
         {
             if (!Tools.Alive(equippable))
@@ -183,18 +420,24 @@ namespace MoreGuns.Patches
             if (!IsLongGunEquippable(equippable))
                 return;
 
-            CacheRifleAnimationsFromVanilla();
+            bool smg = IsSmgEquippable(equippable);
+            if (smg)
+                CachePistolAnimationsFromVanilla();
+            else
+                CacheRifleAnimationsFromVanilla();
 
-            if (!string.IsNullOrEmpty(_rifleHold))
+            string hold = smg ? _pistolHold : _rifleHold;
+            if (!string.IsNullOrEmpty(hold))
             {
-                try { equippable.AnimationTrigger = _rifleHold; }
-                catch { GameAccess.Set(equippable, "AnimationTrigger", _rifleHold); }
+                try { equippable.AnimationTrigger = hold; }
+                catch { GameAccess.Set(equippable, "AnimationTrigger", hold); }
             }
 
-            if (_rifleTriggerTypeValid)
+            if (smg ? _pistolTriggerTypeValid : _rifleTriggerTypeValid)
             {
-                try { equippable.TriggerType = _rifleTriggerType; }
-                catch { GameAccess.Set(equippable, "TriggerType", _rifleTriggerType); }
+                AvatarEquippable.ETriggerType triggerType = smg ? _pistolTriggerType : _rifleTriggerType;
+                try { equippable.TriggerType = triggerType; }
+                catch { GameAccess.Set(equippable, "TriggerType", triggerType); }
             }
         }
 
@@ -205,11 +448,55 @@ namespace MoreGuns.Patches
             if (!IsLongGunEquippable(ranged))
                 return;
 
-            CacheRifleAnimationsFromVanilla();
+            bool smg = IsSmgEquippable(ranged);
+            if (smg)
+            {
+                CachePistolAnimationsFromVanilla();
+                ForceAnim(ranged, "LoweredAnimationTrigger", _pistolLowered);
+                ForceAnim(ranged, "RaisedAnimationTrigger", _pistolRaised);
+                ForceAnim(ranged, "RecoilAnimationTrigger", _pistolRecoil);
+            }
+            else
+            {
+                CacheRifleAnimationsFromVanilla();
+                ForceAnim(ranged, "LoweredAnimationTrigger", _rifleLowered);
+                ForceAnim(ranged, "RaisedAnimationTrigger", _rifleRaised);
+                ForceAnim(ranged, "RecoilAnimationTrigger", _rifleRecoil);
+            }
+        }
 
-            ForceAnim(ranged, "LoweredAnimationTrigger", _rifleLowered);
-            ForceAnim(ranged, "RaisedAnimationTrigger", _rifleRaised);
-            ForceAnim(ranged, "RecoilAnimationTrigger", _rifleRecoil);
+        private static bool IsSmgEquippable(AvatarEquippable equippable)
+        {
+            if (!Tools.Alive(equippable))
+                return false;
+
+            string path = null;
+            try { path = equippable.AssetPath; }
+            catch { path = GameAccess.Get<string>(equippable, "AssetPath"); }
+            if (IsSmgPath(path))
+                return true;
+
+            try
+            {
+                string name = equippable.gameObject != null ? equippable.gameObject.name : null;
+                if (IsSmgPath(name))
+                    return true;
+            }
+            catch { }
+
+            return false;
+        }
+
+        private static bool IsSmgPath(string pathOrName)
+        {
+            if (string.IsNullOrEmpty(pathOrName))
+                return false;
+            // Match SMG / smg but not accidental substrings inside other ids.
+            string leaf = pathOrName;
+            int slash = Math.Max(pathOrName.LastIndexOf('/'), pathOrName.LastIndexOf('\\'));
+            if (slash >= 0 && slash + 1 < pathOrName.Length)
+                leaf = pathOrName.Substring(slash + 1);
+            return leaf.IndexOf("smg", StringComparison.OrdinalIgnoreCase) >= 0;
         }
 
         private static bool IsLongGunEquippable(AvatarEquippable equippable)
@@ -290,9 +577,70 @@ namespace MoreGuns.Patches
                 return;
             _rifleAnimCached = true;
 
+            TryCacheAvatarAnims(
+                "Avatar/Equippables/PumpShotgun",
+                out _rifleHold,
+                out _rifleLowered,
+                out _rifleRaised,
+                out _rifleRecoil,
+                out _rifleTriggerType,
+                out _rifleTriggerTypeValid);
+
+            if (string.IsNullOrEmpty(_rifleHold))
+                _rifleHold = "Shotgun_Grip_Lowered";
+            if (string.IsNullOrEmpty(_rifleLowered))
+                _rifleLowered = "Shotgun_Grip_Lowered";
+            if (string.IsNullOrEmpty(_rifleRaised))
+                _rifleRaised = "Shotgun_Grip_Raised";
+            if (string.IsNullOrEmpty(_rifleRecoil))
+                _rifleRecoil = "Shotgun_Recoil";
+        }
+
+        private static void CachePistolAnimationsFromVanilla()
+        {
+            if (_pistolAnimCached)
+                return;
+            _pistolAnimCached = true;
+
+            TryCacheAvatarAnims(
+                "Avatar/Equippables/M1911",
+                out _pistolHold,
+                out _pistolLowered,
+                out _pistolRaised,
+                out _pistolRecoil,
+                out _pistolTriggerType,
+                out _pistolTriggerTypeValid);
+
+            // Vanilla M1911 two-hand pistol hold (support hand on the grip).
+            if (string.IsNullOrEmpty(_pistolHold))
+                _pistolHold = "BothHands_Grip_Lowered";
+            if (string.IsNullOrEmpty(_pistolLowered))
+                _pistolLowered = "BothHands_Grip_Lowered";
+            if (string.IsNullOrEmpty(_pistolRaised))
+                _pistolRaised = "BothHands_Grip_Raised";
+            if (string.IsNullOrEmpty(_pistolRecoil))
+                _pistolRecoil = "BothHands_Grip_Recoil";
+        }
+
+        private static void TryCacheAvatarAnims(
+            string resourcePath,
+            out string hold,
+            out string lowered,
+            out string raised,
+            out string recoil,
+            out AvatarEquippable.ETriggerType triggerType,
+            out bool triggerTypeValid)
+        {
+            hold = null;
+            lowered = null;
+            raised = null;
+            recoil = null;
+            triggerType = default;
+            triggerTypeValid = false;
+
             try
             {
-                UnityEngine.Object loaded = Resources.Load("Avatar/Equippables/PumpShotgun");
+                UnityEngine.Object loaded = Resources.Load(resourcePath);
                 GameObject prefab = loaded != null ? loaded.As<GameObject>() : null;
                 AvatarRangedWeapon template = null;
                 if (prefab != null)
@@ -301,30 +649,21 @@ namespace MoreGuns.Patches
                         ?? prefab.GetComponentInChildren<AvatarRangedWeapon>(true);
                 }
 
-                if (Tools.Alive(template))
+                if (!Tools.Alive(template))
+                    return;
+
+                try { hold = template.AnimationTrigger; } catch { }
+                try { lowered = template.LoweredAnimationTrigger; } catch { }
+                try { raised = template.RaisedAnimationTrigger; } catch { }
+                try { recoil = template.RecoilAnimationTrigger; } catch { }
+                try
                 {
-                    try { _rifleHold = template.AnimationTrigger; } catch { }
-                    try { _rifleLowered = template.LoweredAnimationTrigger; } catch { }
-                    try { _rifleRaised = template.RaisedAnimationTrigger; } catch { }
-                    try { _rifleRecoil = template.RecoilAnimationTrigger; } catch { }
-                    try
-                    {
-                        _rifleTriggerType = template.TriggerType;
-                        _rifleTriggerTypeValid = true;
-                    }
-                    catch { }
+                    triggerType = template.TriggerType;
+                    triggerTypeValid = true;
                 }
+                catch { }
             }
             catch { }
-
-            if (string.IsNullOrEmpty(_rifleHold))
-                _rifleHold = "BothHands_Grip_Lowered";
-            if (string.IsNullOrEmpty(_rifleLowered))
-                _rifleLowered = "BothHands_Grip_Lowered";
-            if (string.IsNullOrEmpty(_rifleRaised))
-                _rifleRaised = "BothHands_Grip_Raised";
-            if (string.IsNullOrEmpty(_rifleRecoil))
-                _rifleRecoil = "BothHands_Grip_Recoil";
         }
 
         internal static void EnsureAlignmentPoint(AvatarEquippable equippable)

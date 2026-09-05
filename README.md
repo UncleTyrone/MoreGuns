@@ -4,7 +4,7 @@
 
 [![Discord](https://img.shields.io/badge/Discord-VOID_Community-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/XB7ruKtJje)
 [![License](https://img.shields.io/badge/LICENSE-MIT-5466b8?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Downloads](https://img.shields.io/badge/DOWNLOADS-10,000+-00B81F?style=for-the-badge)](https://www.nexusmods.com/schedule1/mods/904)
+[![Downloads](https://img.shields.io/badge/DOWNLOADS-10,000+-00B81F?style=for-the-badge)](https://www.nexusmods.com/schedule1/mods/2528)
 
 [![Patreon](https://img.shields.io/badge/Patreon-Support_Me-FF424D?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/c/Voidane)
 
@@ -12,7 +12,7 @@
 
 <div align="center">
 
-### [⬇️ Download from Nexus Mods](https://www.nexusmods.com/schedule1/mods/904)
+### [⬇️ Download from Nexus Mods](https://www.nexusmods.com/schedule1/mods/2528)
 
 </div>
 
@@ -43,7 +43,9 @@ Adds new weapons to Schedule I. Buy guns and magazines from **Stan’s** arms de
 - **Automatic fire** on AK47, MiniGun, and SMG
 - **Custom meshes, sounds, and icons** per weapon
 - **Stan’s shop** listings for every gun and magazine
-- **Reload** with inventory magazines (R); SMG/sniper get a seated mag pop animation; AK uses its native reload clip; RPG reloads the rocket tube
+- **Reload** with inventory magazines (R); SMG/sniper get a seated mag pop; AK uses its native reload clip; RPG reloads the rocket tube
+- **Two-handed holds** for AK47, sniper, SMG, minigun, and RPG (player and NPCs). SMG uses a compact two-hand pistol grip so both hands sit on the weapon
+- **Co-op sync** — other players see and hear the guns you are holding; bullet tracers show for custom guns
 - **RPG explosions** on hit
 - **Optional crosshair** for MoreGuns weapons
 - **Per-gun config** in `UserData/MoreGuns.cfg` (damage, price, shop availability, names, etc.)
@@ -120,6 +122,7 @@ Default combat tuning for the newer guns (overridable in the same file):
 
 - Schedule I **Il2Cpp** + MelonLoader **0.7.3** (primary)
 - Mono alternate build supported via `MoreGunsMono.dll`
+- Works with **Police Response Overhaul** for armed police / pickpocket loadouts
 - Compatible with most other mods
 
 ## 🆘 Support
@@ -144,5 +147,3 @@ This mod is released as fair use. Other modders are welcome to:
 
 - Credit must be given to Voidane as the original creator
 - Include a link to the original mod or Discord server when redistributing
-
----

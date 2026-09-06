@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.4
+
+### Stability
+
+- Fixed intermittent Fatal CLR `0x80131506` (`MonoMod CompileMethodHook`) when loading a save: Harmony waits for the local player + settle time, then applies patches one class per frame instead of bulk `PatchAll` during Main/save deserialize.
+
 ## 1.6.3
 
 ### Multiplayer

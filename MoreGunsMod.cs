@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(MoreGunsMod), "MoreGuns", "1.6.3", "Voidane")]
+[assembly: MelonInfo(typeof(MoreGunsMod), "MoreGuns", "1.6.4", "Voidane")]
 [assembly: MelonGame("TVGS", "Schedule I")]
 [assembly: HarmonyDontPatchAll]
 
@@ -33,6 +33,7 @@ namespace MoreGuns
         public static bool isInitialized;
         public static HarmonyLib.Harmony harmony;
         private static bool harmonyApplied;
+        private static bool bootStarted;
 
         public override void OnInitializeMelon()
         {
@@ -73,31 +74,17 @@ namespace MoreGuns
             if (sceneName != "Main")
             {
                 ItemRegistryPatch.Reset();
+                bootStarted = false;
                 return;
             }
 
-            // Apply Harmony after scene load to avoid the CLR 0x80131506 crash.
-            // PatchAll during OnInitializeMelon triggers MonoMod's JIT hook too early.
-            if (!harmonyApplied)
+            // Do NOT PatchAll synchronously — Main == save load. That JIT storm + MonoMod
+            // CompileMethodHook intermittently fatals with CLR 0x80131506.
+            if (!bootStarted)
             {
-#if IL2CPP
-                harmony = new HarmonyLib.Harmony("com.voidane.moregunsil2cpp");
-#else
-                harmony = new HarmonyLib.Harmony("com.voidane.moregunsmono");
-#endif
-                try
-                {
-                    harmony.PatchAll(typeof(MoreGunsMod).Assembly);
-                    harmonyApplied = true;
-                }
-                catch (Exception ex)
-                {
-                    MelonLogger.Error($"Harmony PatchAll failed: {ex}");
-                }
+                bootStarted = true;
+                MelonCoroutines.Start(BootAfterSaveSettles());
             }
-
-            // ShopInterface.Awake often runs before PatchAll, so find/inject explicitly.
-            MelonCoroutines.Start(ArmsDealerInterfacePatch.FindAndInjectAfterHarmony());
 
             try
             {
@@ -121,6 +108,42 @@ namespace MoreGuns
 
             ReloadMessage.Initialize(hud.transform);
             WindupIndicator.Initialize(hud.transform);
+        }
+
+        private static IEnumerator BootAfterSaveSettles()
+        {
+            float waited = 0f;
+            while (GameObject.Find("Player_Local") == null && waited < 90f)
+            {
+                yield return new WaitForSeconds(0.25f);
+                waited += 0.25f;
+            }
+
+            yield return new WaitForSeconds(2f);
+
+            if (!harmonyApplied)
+            {
+#if IL2CPP
+                harmony = new HarmonyLib.Harmony("com.voidane.moregunsil2cpp");
+#else
+                harmony = new HarmonyLib.Harmony("com.voidane.moregunsmono");
+#endif
+                MelonLogger.Msg("Applying MoreGuns Harmony patches after save settle (batched)...");
+                yield return SafeHarmony.ApplyBatched(
+                    harmony,
+                    typeof(ArmsDealerInterfacePatch),
+                    typeof(CameraJoltPatch),
+                    typeof(DialoguePatch),
+                    typeof(Equippalbe_RangedWeaponPatch),
+                    typeof(ItemRegistryPatch),
+                    typeof(RangedWeaponEquipPatch),
+                    typeof(ReloadingPatch),
+                    typeof(SetEquippablePatch),
+                    typeof(TrashRegistryPatch));
+                harmonyApplied = true;
+            }
+
+            MelonCoroutines.Start(ArmsDealerInterfacePatch.FindAndInjectAfterHarmony());
         }
 
         public static void RegisterAsset(string path, UnityEngine.Object asset)

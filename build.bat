@@ -6,7 +6,7 @@ rem ============================================================================
 rem  EDIT THESE
 rem =============================================================================
 
-set "VERSION=1.6.3"
+set "VERSION=1.6.4"
 
 rem Folder where finished zips are written (NOT used as the build output)
 set "ZIP_OUT_DIR=%~dp0..\Schedule I"
